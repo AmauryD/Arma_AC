@@ -6,7 +6,7 @@ Contact me on www.utopiagaming.fr for more explanations.
 create a description.ext file and add this code : 
 
 #include "CustomAntiHack\config.hpp"
-//#include "CustomAntiHack\Menu\Menu.hpp" // only for Altis life
+#include "CustomAntiHack\Menu\Menu.hpp"
 
 class cfgFunctions {
 	#include "CustomAntiHack\functions.hpp"

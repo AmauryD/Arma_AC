@@ -1,3 +1,5 @@
+#include "common.hpp"
+
 class ac_menu {
 
 	idd = 12340;
@@ -6,7 +8,7 @@ class ac_menu {
 	
 	class controlsBackground {
 
-		class life_RscTitleBackground:life_RscText {
+		class ac_RscTitleBackground:ac_RscText {
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
 			idc = -1;
 			x = 0.1;
@@ -15,7 +17,7 @@ class ac_menu {
 			h = (1 / 25);
 		};
 		
-		class MainBackground:life_RscText {
+		class MainBackground:ac_RscText {
 			colorBackground[] = {0, 0, 0, 0.7};
 			idc = -1;
 			x = 0.1;
@@ -24,10 +26,10 @@ class ac_menu {
 			h = 0.7 - (22 / 250);
 		};
 		
-		class Title : life_RscTitle {
+		class Title : ac_RscTitle {
 			colorBackground[] = {0, 0, 0, 0};
 			idc = -1;
-			text = "<3 AntiCheat Menu Altis life <3";
+			text = "AntiCheat Menu";
 			x = 0.1;
 			y = 0.2;
 			w = 0.9;
@@ -37,7 +39,7 @@ class ac_menu {
 	
 	class controls {
 
-		class Mode : Life_RscCombo 
+		class Mode : ac_RscCombo 
 		{
 			idc = 12343;
 
@@ -47,7 +49,7 @@ class ac_menu {
 			h = (1 / 25);
 		};
 
-		class logs : life_RscListBox 
+		class logs : ac_RscListBox 
 		{
 			idc = 12342;
 			sizeEx = 0.030;
@@ -56,7 +58,7 @@ class ac_menu {
 			w = 0.9; h = 0.30;
 		};
 
-		class moreInfos : Life_RscStructuredText
+		class moreInfos : ac_RscStructuredText
 		{
 			idc = 12344;
 			sizeEx = 0.020;
@@ -66,7 +68,7 @@ class ac_menu {
 			w = 0.8; h = 0.2;
 		};
 
-		class filterLogs : Life_Checkbox
+		class filterLogs : ac_Checkbox
 		{
 			idc = 12345;
 			x = 0.1;
@@ -75,7 +77,7 @@ class ac_menu {
 			h = 0.05;
 		};
 
-		class filterDesc : Life_RscStructuredText
+		class filterDesc : ac_RscStructuredText
 		{
 			idc = 12346;
 			sizeEx = 0.015;
@@ -85,7 +87,7 @@ class ac_menu {
 			w = 0.5; h = 0.1;
 		};
 
-		class allowMessageShow : Life_Checkbox
+		class allowMessageShow : ac_Checkbox
 		{
 			idc = 12351;
 			x = 0.1;
@@ -94,7 +96,7 @@ class ac_menu {
 			h = 0.05;
 		};
 
-		class allowMessageShowDesc : Life_RscStructuredText
+		class allowMessageShowDesc : ac_RscStructuredText
 		{
 			idc = 12352;
 			sizeEx = 0.015;
@@ -104,7 +106,7 @@ class ac_menu {
 			w = 0.5; h = 0.1;
 		};
 		
-		class pList : life_RscListBox 
+		class pList : ac_RscListBox 
 		{
 			idc = 12341;
 			sizeEx = 0.030;
@@ -113,7 +115,7 @@ class ac_menu {
 			w = 0.4; h = 0.45;
 		};
 
-		class Options : life_RscListBox 
+		class Options : ac_RscListBox 
 		{
 			idc = 12347;
 			sizeEx = 0.030;
@@ -122,7 +124,7 @@ class ac_menu {
 			w = 0.35; h = 0.45;
 		};
 
-		class consoleText : ConsoleEdit
+		class consoleText : ac_ConsoleEdit
 		{
 		  idc = 12348;
 		  text = "";
@@ -130,7 +132,7 @@ class ac_menu {
 		  w = 0.75; h = 0.2;
 		};
 
-		class executedList : life_RscListBox 
+		class executedList : ac_RscListBox 
 		{
 			idc = 12350;
 			sizeEx = 0.030;
@@ -139,7 +141,7 @@ class ac_menu {
 			w = 0.75; h = 0.25;
 		};
 
-		class consoleExec : Life_RscButtonMenu
+		class consoleExec : ac_RscButtonMenu
 		{
 			idc = 12349;
 			text = "exec";

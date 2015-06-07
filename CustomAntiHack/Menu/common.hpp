@@ -119,7 +119,7 @@ class ac_RscScrollBar
 };
 
 class ac_RscEdit {
-	type = 2;
+	type = CT_EDIT;
 	style = 0x00 + 0x40;
 	font = FontM;
 	shadow = 2;
@@ -192,7 +192,7 @@ class ac_RscText {
 	y = 0;
 	h = 0.037;
 	w = 0.3;
-	type = 0;
+	type = CT_STATIC;
 	style = 0;
 	shadow = 1;
 	colorShadow[] = {0, 0, 0, 0.5};

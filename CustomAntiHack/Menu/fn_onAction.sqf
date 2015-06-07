@@ -40,36 +40,10 @@ switch(_mode) do {
        _player switchCamera "EXTERNAL";
       };
       case 6:{
-        _startTime = time;
-        _password = profileNamespace getVariable["ac_serverpassword",""];
-        hintSilent "trying to log in...";
-        serverCommand format["#login %1",_password];
-
-        WaitUntil{serverCommandExecutable "#kick" || time - _startTime > 5};
-
-        if(serverCommandExecutable "#kick") then {
-        serverCommand format["#kick %1",name _player];
-        hint format["%1 kicked",name _player];
-        }else{
-        hint format["kick failed",name _player];
-        };
-        serverCommand "#logout";
+        hint "W.I.P";
       };
       case 7:{
-        _startTime = time;
-        _password = profileNamespace getVariable["ac_serverpassword",""];
-        hintSilent "trying to log in...";
-        serverCommand format["#login %1",_password];
-
-        WaitUntil{serverCommandExecutable "#exec" || time - _startTime > 5};
-          
-        if(serverCommandExecutable "#exec") then {
-        serverCommand format["#exec ban %1",name _player];
-        hint format["%1 banned",name _player];
-        }else{
-        hint format["ban failed",name _player];
-        };
-        serverCommand "#logout";
+        hint "W.I.P";
       };
     };
    };
@@ -141,31 +115,11 @@ switch(_mode) do {
       };
 
       case 12:{
-        _startTime = time;
-        _password = profileNamespace getVariable["ac_serverpassword",""];
-        hintSilent "trying to log in...";
-        serverCommand format["#login %1",_password];
-        if(serverCommandExecutable "#kick") then {
-        serverCommand format["#kick %1",name _player];
-        hint format["%1 kicked",name _player];
-        }else{
-        hint format["kick failed",name _player];
-        };
-        serverCommand "#logout";
+        hint "W.I.P";
       };
 
       case 13:{
-        _startTime = time;
-        _password = profileNamespace getVariable["ac_serverpassword",""];
-        hintSilent "trying to log in...";
-        serverCommand format["#login %1",_password];
-        if(serverCommandExecutable "#exec") then {
-        serverCommand format["#exec ban %1",name _player];
-        hint format["%1 banned",name _player];
-        }else{
-        hint format["ban failed",name _player];
-        };
-        serverCommand "#logout";
+        hint "W.I.P";
       };
     };
    };

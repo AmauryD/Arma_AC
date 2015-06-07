@@ -15,6 +15,8 @@ if(isNil "_version") then {
 
 ac_logs = [];
 
-{
-_x addPublicVariableEventHandler {_this call ac_fnc_MPexec};
-}foreach getArray (AC_CFG_MP >> "supported_packets");
+if(MP_ENABLED) then {
+  {
+	_x addPublicVariableEventHandler {_this call ac_fnc_MPexec};
+  }foreach getArray (AC_CFG_MP >> "supported_packets");
+};

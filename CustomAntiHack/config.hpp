@@ -1,12 +1,15 @@
-class AntiCheat {
+#define true 1
+#define false 0
 
+class AntiCheat {
 #include "MP_config.hpp"
 
+enabled = true; //enable the anti cheat client side
+mp_enabled = true; //enable filtering packets via mp functions
+debug = true; //debug mode
+
 admins[] = {
-    "76561198075573734",
-    "76561197970859000",
-    "76561198089589432",
-    "76561198089586780"
+    "76561197970859000"
 };
 
 badFiles[] = {

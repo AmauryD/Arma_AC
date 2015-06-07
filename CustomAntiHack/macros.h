@@ -1,11 +1,13 @@
-#define DEBUG true
-
 #define MCF missionConfigFile
 #define AC_CFG MCF >> "AntiCheat"
 #define AC_CFG_MP AC_CFG >> "MP"
 #define AC_CFG_VARS AC_CFG >> "variablesCfg"
 #define AC_CFG_VARS_TAGS AC_CFG_VARS >> "tags"
 #define AC_CFG_VARS_VARS AC_CFG_VARS >> "variables"
+
+#define DEBUG (getNumber (AC_CFG >> "debug") == 1)
+#define AC_ENABLED (getNumber (AC_CFG >> "enabled") == 1)
+#define MP_ENABLED (getNumber (AC_CFG >> "mp_enabled") == 1)
 
 #define RISK_LOW 0
 #define RISK_HIGH 1

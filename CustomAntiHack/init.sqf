@@ -7,6 +7,8 @@ contact on the ts3 : ts.utopiagaming.fr or the website www.utopiagaming.fr
 */
 waitUntil{BIS_fnc_init};
 
+if(!AC_ENABLED) exitWith {};
+
 ac_loggedVars = [];
 
 if(getplayeruid player in (getArray (AC_CFG >> "admins"))) exitWith {
@@ -23,9 +25,8 @@ player addEventHandler["Put",AC_fnc_interactWithContainer];
 [] call AC_fnc_checkFiles;
 
 [] spawn {
-private["_allowedVars","_allowedWeapons","_allowedVehicles","_badVars","_allowedVariables","_badFiles"];
+private["_allowedWeapons","_badVars","_allowedVariables"];
 _allowedWeapons = [];
-_allowedVehicles = getArray (AC_CFG >> "allowedVehicles");
 _allowedVariables = getArray (AC_CFG_VARS_VARS >> "allowed");
 _badVars = getArray (AC_CFG_VARS_VARS >> "forbidden");
 
@@ -88,9 +89,12 @@ true
 };
 
 [] spawn {
-private "_allowedDisplays";
+private ["_allowedDisplays","_allowedVehicles"];
 disableSerialization;
 _allowedDisplays = getArray (AC_CFG >> "allowedDisplays");
+_allowedVehicles = [];
+
+{_allowedVehicles pushBack (tolower _x)}foreach getArray (AC_CFG >> "allowedVehicles");
 
 while{true} do {
   {
@@ -103,7 +107,7 @@ while{true} do {
   }count allDisplays;
 
   if(vehicle player != player) then {
-    if(!(typeof vehicle player in _allowedVehicles)) then {
+    if(!(tolower (typeof vehicle player) in _allowedVehicles)) then {
       _message = format["%1 (%2) : bad vehicle %3.",name player,getplayeruid player,typeof vehicle player];
       [[RISK_HIGH,"AC_BadVehicle.log",_message],"AC_fnc_log",false,false] call bis_fnc_mp;
       deleteVehicle vehicle player;

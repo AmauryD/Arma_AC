@@ -5,7 +5,7 @@ created : 14/05/2015
 updated : 23/05/2015
 */
 
-private ["_values","_target","_arguments", "_code", "_function","_callerName","_callerUID","_allowed_tags","_allowedFunctions","_serverID","_ownerID","_on","_return"];
+private ["_target", "_code", "_function","_allowed_tags","_allowedFunctions","_serverID","_ownerID","_on","_return"];
 
 _packetName = [_this, 0, "", [""]] call BIS_fnc_param;
 _values = _this select 1;

@@ -44,8 +44,8 @@ while{true} do {
 
 {
   if(!(_x in _allowedVariables)) then {
-    if(!([getArray (AC_CFG_VARS_TAGS >> "allowed"),_x] call ac_fnc_inStrings)) then {
-     if([getArray (AC_CFG_VARS_TAGS >> "forbidden"),_x] call ac_fnc_inStrings) then {
+    if(!([getArray (AC_CFG_VARS_TAGS >> "allowed"),_x] call ac_fnc_beginWiths)) then {
+     if([getArray (AC_CFG_VARS_TAGS >> "forbidden"),_x] call ac_fnc_beginWiths) then {
        _message = format["%1 (%2) hack var detected by tag %3 (forcekicked)",profileName,getplayeruid player,_x];
        [[RISK_HACK,"AC_HackVars.log",_message],"AC_fnc_log",false,false] call bis_fnc_mp;
        [[_x,str (missionnamespace getVariable _x)],"AC_fnc_logScript",false,false] call bis_fnc_mp;

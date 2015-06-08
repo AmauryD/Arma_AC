@@ -116,6 +116,10 @@ class variablesCfg {
 
     allowed[] = { // no problem if has not the allowed tag
         "off",
+        "ac_fnc_beginwith",
+        "ac_fnc_beginwith_meta",
+        "ac_fnc_beginwiths",
+        "ac_fnc_beginwiths_meta",
         "life_fnc_radargun",
         "life_fnc_ryn_message_meta",
         "life_fnc_pb_response_meta",
@@ -124,7 +128,7 @@ class variablesCfg {
         "life_fnc_injail_meta",
         "life_fnc_injail",
         "life_fnc_ryn_message",
-        "life_fnc_radargun_meta",
+        "life_fnc_radargun_meta",       
         "pb_positionen",
         "cba_diagnostic_debugshown",
         "cba_diagnostic_fnc_logstatement",

@@ -5,6 +5,8 @@ class AC_system {
     class log {};
     class interactWithContainer {};
     class checkFiles {};
+    class beginWith {};
+    class beginWiths {};
     class logScript {};
     class inStrings {};
     class findPlayerByUid {};

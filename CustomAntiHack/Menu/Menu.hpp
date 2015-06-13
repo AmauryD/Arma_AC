@@ -110,6 +110,7 @@ class ac_menu {
 		{
 			idc = 12341;
 			sizeEx = 0.030;
+			rowHeight = 0.02;
 
 			x = 0.1; y = 0.30;
 			w = 0.4; h = 0.45;
@@ -149,6 +150,54 @@ class ac_menu {
 			x = 0 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
 			y = 0.55 - (1 / 25);
 			w = (6.25 / 40);
+			h = (1 / 25);
+		};
+
+		class spawnHeader : ac_RscText
+		{
+			idc = 12355;
+			text = "Spawn list :";
+
+			x = 0.1; y = 0.21;
+			w = 0.3; h = 0.1;
+		};
+
+		class spawnList : ac_RscListBox 
+		{
+			idc = 12353;
+			sizeEx = 0.025;
+			rowHeight = 0.02;
+
+			x = 0.1; y = 0.3;
+			w = 0.35; h = 0.45;
+		};
+
+		class spawnedHeader : ac_RscText
+		{
+			idc = 12357;
+			text = "Spawned vehicles list :";
+
+			x = 0.5; y = 0.21;
+			w = 0.4; h = 0.1;
+		};
+
+		class spawnedVehiclesList : ac_RscListBox 
+		{
+			idc = 12356;
+			sizeEx = 0.025;
+			rowHeight = 0.02;
+
+			x = 0.5; y = 0.3;
+			w = 0.35; h = 0.45;
+		};
+
+		class spawnTypes : ac_RscCombo 
+		{
+			idc = 12354;
+            colorBackground[] = {0, 0, 0, 0.9};
+			x = 0.1;
+			y = 0.75;
+			w = 0.35;
 			h = (1 / 25);
 		};
 	};

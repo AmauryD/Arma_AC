@@ -36,6 +36,10 @@ class AC_system {
     class open {};
     class changeMenu {};
     class copyConsoleLBSel {};
+    class onSpawnTypeChanged {};
+    class updateSpawnedList {};
+    class onSpawnClick {};
+    class onSpawnedClick {};
     class update {};
     class onLogSelChanged {};
     class onModeSelChanged {};

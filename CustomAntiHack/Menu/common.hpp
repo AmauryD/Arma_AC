@@ -409,7 +409,7 @@ class ac_RscListBox
 	arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
 	arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
 	wholeHeight = 0.45;
-	rowHeight = 0.04;
+	rowHeight = 0.03;
 	color[] = {0.7, 0.7, 0.7, 1};
 	colorActive[] = {0,0,0,1};
 	colorDisabled[] = {0,0,0,0.3};
@@ -446,7 +446,6 @@ class ac_RscCombo {
 	maxHistoryDelay = 1;
 	colorBackground[] = {0.4,0.4,0.4,0.4};
 	colorSelectBackground[] = {1, 1, 1, 0.7};
-	colow_Rscrollbar[] = {1, 0, 0, 1};
 	soundSelect[] = {
 			"", 0.000000, 1
 	};

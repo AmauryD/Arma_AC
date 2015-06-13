@@ -1,4 +1,6 @@
 #include "macros.h"
+#define ADD_TAB(NAME) _index = _modeCb lbAdd NAME;_modeCb lbSetValue [_index,_index]
+#define ADD_TAB_SPAWN(NAME,TYPE) _index = _vehicleListType lbAdd NAME;_vehicleListType lbSetData [_index,TYPE]
 /*
 By [utopia] Amaury
 14/05/2015
@@ -15,20 +17,33 @@ _filterLowLogs = _display displayCtrl 12345;
 _Aactions = _display displayCtrl 12347;
 _consoleList = _display displayCtrl 12350;
 _showMessages = _display displayCtrl 12351;
+_vehList = _display displayCtrl 12353;
+_vehicleListType = _display displayCtrl 12354;
+_spawnedList = _display displayCtrl 12356;
 
-_modeCb lbAdd "Logs";
-_modeCb lbAdd "Admin";
-_modeCb lbAdd "Console";
-_modeCb lbAdd "Options";
+ADD_TAB("Logs");
+ADD_TAB("Admin");
+ADD_TAB("Console");
+ADD_TAB("Options");
+ADD_TAB("SpawnMenu");
 
-_modeCb lbSetValue [0,0];
-_modeCb lbSetValue [1,1];
-_modeCb lbSetValue [2,2];
-_modeCb lbSetValue [3,3];
+ADD_TAB_SPAWN("Tanks","Tank");
+ADD_TAB_SPAWN("Cars","Car");
+ADD_TAB_SPAWN("Helicopters","Helicopter");
+ADD_TAB_SPAWN("Planes","Plane");
+ADD_TAB_SPAWN("Ships","Ship");
+ADD_TAB_SPAWN("Structures","Building");
+ADD_TAB_SPAWN("Ammoboxes","ReammoBox_F");
+ADD_TAB_SPAWN("Weapons","Weapon_Base_F");
+ADD_TAB_SPAWN("Items","Items_base_F");
+ADD_TAB_SPAWN("Bags","Bag_Base");
 
 _filterLowLogs cbSetChecked (profileNamespace getVariable ["showlowlogs",false]);
 _showMessages cbSetChecked (profileNamespace getVariable ["showMessages",false]);
 
+_vehList ctrlAddEventHandler["LBDblClick",ac_fnc_onSpawnClick];
+_spawnedList ctrlAddEventHandler["LBDblClick",ac_fnc_onSpawnedClick];
+_vehicleListType ctrlAddEventHandler["LBSelChanged",ac_fnc_onSpawnTypeChanged];
 _modeCb ctrlAddEventHandler["LBSelChanged",ac_fnc_changeMenu];
 _logs ctrlAddEventHandler["LBSelChanged",ac_fnc_onLogSelChanged];
 _plist ctrlAddEventHandler["LBSelChanged",ac_fnc_onModeSelChanged];

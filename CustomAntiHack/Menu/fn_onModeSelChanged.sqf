@@ -43,7 +43,7 @@ if(!(_player isEqualTo player)) then {
     _Aactions lbSetColor [_index, [0, 255, 55, 0.9]];
     };
     ADD_ACTION("god mode vehicule",7);
-    if(ac_god_v_active) then {
+    if(ac_god_v_active && ac_god_v_veh isEqualTo (vehicle player)) then {
     _Aactions lbSetColor [_index, [0, 255, 55, 0.9]];
     };
     ADD_ACTION("arsenal",8);

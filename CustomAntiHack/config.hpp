@@ -116,6 +116,7 @@ class variablesCfg {
 
     allowed[] = { // no problem if has not the allowed tag
         "off",
+        "bis_fnc_modulenametags",
         "ac_fnc_beginwith",
         "ac_fnc_beginwith_meta",
         "ac_fnc_beginwiths",

@@ -16,7 +16,7 @@ if(_player isEqualTo objNull) exitWith {hintSilent "Erreur"};
 
 if(_player == player) then {_mode = 1}else{_mode = 0};
 
-{if(isnil _x) then {missionNamespace setVariable [_x,false]}}foreach ["ac_god_active","ac_god_v_active"];
+{if(isnil _x) then {missionNamespace setVariable [_x,false]}}foreach ["ac_god_active","ac_god_v_active","ac_god_v_veh"];
 
 switch(_mode) do {
    case 0:{
@@ -37,7 +37,11 @@ switch(_mode) do {
       (vehicle _player) setDamage 1; 
       };
       case 5:{
+       if(cameraOn == _player) then {
+       player switchCamera "EXTERNAL";
+       }else{
        _player switchCamera "EXTERNAL";
+       };
       };
       case 6:{
         hint "W.I.P";
@@ -55,7 +59,7 @@ switch(_mode) do {
         openMap [true,false];
         hintSilent "please select a place to teleport";
         ["ac_teleport", "onMapSingleClick", {
-	      (vehicle _player) setPosATL _pos;
+	      (vehicle player) setPosATL _pos;
         ["ac_teleport", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
         }] call BIS_fnc_addStackedEventHandler;
       };
@@ -88,12 +92,14 @@ switch(_mode) do {
       case 7:{
         if(!ac_god_v_active) then {
         ac_god_v_id = (vehicle _player) addEventHandler ["handleDamage", {false}];
+        ac_god_v_veh = vehicle _player;
         hintSilent "God mode vehicule activé";
         ac_god_v_active = true;
         }else{
         (vehicle _player) removeEventHandler ["handleDamage",ac_god_v_id];
         hintSilent "God mode vehicule désactivé";
         ac_god_v_active = false;
+        ac_god_v_veh = objNull;
         };
       };
       case 8:{

@@ -4,10 +4,12 @@ By [utopia] Amaury
 16/05/2015
 */
 ac_logs = [_this,0,[],[[]]] call bis_fnc_param;
-ac_show_messages = false;
 ac_god_active = false;
 ac_god_v_active = false;
+ac_god_v_veh = objNull;
 [format["Welcome admin %1 !",profileName]] spawn bis_fnc_dynamicText;
+
+waitUntil {!isNull findDisplay 46};
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
 _code = _this select 1;

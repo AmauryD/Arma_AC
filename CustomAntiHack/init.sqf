@@ -5,7 +5,7 @@ created : 11/05/2015
 updated : 23/05/2015
 contact on the ts3 : ts.utopiagaming.fr or the website www.utopiagaming.fr
 */
-waitUntil{BIS_fnc_init};
+waitUntil{!isnil "BIS_fnc_init" && BIS_fnc_init};
 
 if(!AC_ENABLED) exitWith {};
 
@@ -21,7 +21,6 @@ if(getText(configFile >> "CfgFunctions" >> "init") != "A3\functions_f\initFuncti
 };
 
 player addEventHandler["Take",AC_fnc_interactWithContainer];
-player addEventHandler["Put",AC_fnc_interactWithContainer];
 [] call AC_fnc_checkFiles;
 
 [] spawn {

@@ -81,10 +81,10 @@ class ac_menu {
 		{
 			idc = 12346;
 			sizeEx = 0.015;
-			text = "Ne pas me montrer les risques faibles.";
+			text = "Don't show low risks in logs.";
 			x = 0.16;
 			y = 0.25;
-			w = 0.5; h = 0.1;
+			w = 0.7; h = 0.1;
 		};
 
 		class allowMessageShow : ac_Checkbox
@@ -100,10 +100,10 @@ class ac_menu {
 		{
 			idc = 12352;
 			sizeEx = 0.015;
-			text = "Ne plus afficher les messages sur mon écran.";
+			text = "Don't show messages in the middle of my screen.";
 			x = 0.16;
 			y = 0.32;
-			w = 0.5; h = 0.1;
+			w = 0.7; h = 0.1;
 		};
 		
 		class pList : ac_RscListBox 

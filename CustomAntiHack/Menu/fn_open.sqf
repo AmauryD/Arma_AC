@@ -39,6 +39,11 @@ _filterLowLogs ctrlAddEventHandler["CheckedChanged",{
 }];
 _showMessages ctrlAddEventHandler["CheckedChanged",{
     profileNamespace setVariable ["showMessages",(!(profileNamespace getVariable ["showMessages",false]))];
+    if(profileNamespace getVariable ["showMessages",false]) then {
+    hint "Messages are now hinted in this style.";
+    }else{
+    ["Messages are now hinted in this style."] spawn bis_fnc_dynamicText;
+    };
 }];
 
 [0] call ac_fnc_update;

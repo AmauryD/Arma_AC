@@ -8,12 +8,11 @@ By [utopia] Amaury
 #define CONSOLE_MENU 2
 #define SETTINGS_MENU 3
 
-private["_display","_list","_logs","_modeCb","_consoleList","_admins","_mode","_color","_logsInfos","_filterLowLogs","_Aactions","_codeInput","_codeInputButton"];
+private["_display","_list","_logs","_consoleList","_admins","_color","_ctrlsConsole","_ctrlsLogs","_ctrlsAdmin","_ctrlsSettings"];
 disableSerialization;
 _mode = _this select 0;
 
 _display = findDisplay 12340;
-if(isNull _display) exitWith {};
 
 _list = _display displayCtrl 12341;
 _logs = _display displayCtrl 12342;
@@ -25,23 +24,20 @@ _codeInputButton = _display displayCtrl 12349;
 _consoleList = _display displayCtrl 12350;
 _filterLowLogs = _display displayCtrl 12345;
 _filterLowLogsText = _display displayCtrl 12346;
-
 _showMess = _display displayCtrl 12351;
 _showMessText = _display displayCtrl 12352;
 
+_ctrlsConsole = [_codeInputButton,_codeInput,_consoleList];
+_ctrlsLogs = [_logs,_logsInfos];
+_ctrlsAdmin = [_Aactions,_list];
+_ctrlsSettings = [_filterLowLogs,_filterLowLogsText,_showMess,_showMessText];
+
 switch(_mode) do {
-  case LOGS_MENU:{
-    _list ctrlShow false;
-    _Aactions ctrlShow false;
-    _logs ctrlShow true;
-    _logsInfos ctrlShow true;
-    _codeInput ctrlShow false;
-    _filterLowLogs ctrlShow false;
-    _filterLowLogsText ctrlShow false;
-    _showMess ctrlShow false;
-    _showMessText ctrlShow false;
-    _consoleList ctrlShow false;
-    _codeInputButton ctrlShow false;
+  case LOGS_MENU: {
+    {_x ctrlShow false} forEach _ctrlsAdmin;
+    {_x ctrlShow false} forEach _ctrlsConsole;
+    {_x ctrlShow false} forEach _ctrlsSettings;
+    {_x ctrlShow true} forEach _ctrlsLogs;
     lbClear _logs;
     
      {
@@ -70,17 +66,10 @@ switch(_mode) do {
    };
 
   case ADMIN_MENU:{
-    _list ctrlShow true;
-    _Aactions ctrlShow true;
-    _logs ctrlShow false;
-        _filterLowLogs ctrlShow false;
-    _filterLowLogsText ctrlShow false;
-    _consoleList ctrlShow false;
-        _showMess ctrlShow false;
-    _showMessText ctrlShow false;
-    _logsInfos ctrlShow false;
-    _codeInput ctrlShow false;
-    _codeInputButton ctrlShow false;
+    {_x ctrlShow false} forEach _ctrlsConsole;
+    {_x ctrlShow false} forEach _ctrlsSettings;
+    {_x ctrlShow false} forEach _ctrlsLogs;
+    {_x ctrlShow true} forEach _ctrlsAdmin;
     lbClear _list;
     _admins = [] call ac_fnc_getAdmins;
     
@@ -98,18 +87,10 @@ switch(_mode) do {
   };
 
   case CONSOLE_MENU:{
-  _list ctrlShow false;
-  _Aactions ctrlShow false;
-  _consoleList ctrlShow true;
-  _logs ctrlShow false;
-  _logsInfos ctrlShow false;
-      _showMess ctrlShow false;
-    _showMessText ctrlShow false;
-      _filterLowLogs ctrlShow false;
-    _filterLowLogsText ctrlShow false;
-  _codeInput ctrlShow false;
-  _codeInput ctrlShow true;
-  _codeInputButton ctrlShow true;
+  {_x ctrlShow false} forEach _ctrlsSettings;
+  {_x ctrlShow false} forEach _ctrlsLogs;
+  {_x ctrlShow false} forEach _ctrlsAdmin;
+  {_x ctrlShow true} forEach _ctrlsConsole;
   
   lbClear _consoleList;
   {
@@ -125,17 +106,9 @@ switch(_mode) do {
   };
 
   case SETTINGS_MENU:{
-  _list ctrlShow false;
-  _Aactions ctrlShow false;
-  _consoleList ctrlShow false;
-  _logs ctrlShow false;
-  _logsInfos ctrlShow false;
-  _codeInput ctrlShow false;
-  _codeInput ctrlShow false;
-  _codeInputButton ctrlShow false;
-      _showMess ctrlShow true;
-    _showMessText ctrlShow true;
-  _filterLowLogs ctrlShow true;
-  _filterLowLogsText ctrlShow true;
+  {_x ctrlShow false} forEach _ctrlsLogs;
+  {_x ctrlShow false} forEach _ctrlsAdmin;
+  {_x ctrlShow false} forEach _ctrlsConsole;
+  {_x ctrlShow true} forEach _ctrlsSettings;
   };
 };

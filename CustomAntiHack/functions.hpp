@@ -5,11 +5,15 @@ class AC_system {
     class log {};
     class interactWithContainer {};
     class checkFiles {};
+    class logScript {};
+  };
+
+  class Basic_fnc {
+    file="CustomAntiHack\basic_functions";
+    class findPlayerByUid {};
     class beginWith {};
     class beginWiths {};
-    class logScript {};
-    class inStrings {};
-    class findPlayerByUid {};
+    class removeChar {};
   };
 
   class MP {
@@ -17,7 +21,6 @@ class AC_system {
     class inAllowedFunctions {};
     class filterMP {};
     class MPexec {};
-    class removeChar {};
   };
 
   class Admins {

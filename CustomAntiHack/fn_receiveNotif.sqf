@@ -17,9 +17,12 @@ _textColor = switch(_secLevel) do {
     case RISK_HACK:{RISK_COLOR_HACK};
 };
 
-if(!(profileNamespace getVariable ["showMessages",false])) then {
 _text = format["<t color='%2'>%1</t>",_text,_textColor];
+
+if(!(profileNamespace getVariable ["showMessages",false])) then {
 [_text] spawn bis_fnc_dynamicText;
+}else{
+hint parseText format["AntiCheat : <br/> %1",_text];
 };
 
 disableSerialization;

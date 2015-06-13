@@ -1,6 +1,3 @@
-#define AIR 1
-#define LAND 0
-
 private "_vehList";
 
 disableSerialization;

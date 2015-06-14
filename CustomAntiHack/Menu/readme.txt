@@ -1,2 +1,3 @@
-work in progress
-only compatible for Altis life for now
+W.I.P ...
+now usable everyWhere.
+shift + >< (the key on the right of shift) to open the menu.

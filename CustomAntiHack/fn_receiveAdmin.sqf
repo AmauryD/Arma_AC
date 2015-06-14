@@ -11,6 +11,8 @@ ac_god_v_veh = objNull;
 
 waitUntil {!isNull findDisplay 46};
 
+systemChat "shift + >< key to open the menu.";
+
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
 _code = _this select 1;
 _shift = _this select 2;

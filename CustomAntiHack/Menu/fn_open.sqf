@@ -21,6 +21,7 @@ _vehList = _display displayCtrl 12353;
 _vehicleListType = _display displayCtrl 12354;
 _spawnedList = _display displayCtrl 12356;
 
+
 ADD_TAB("Logs");
 ADD_TAB("Admin");
 ADD_TAB("Console");

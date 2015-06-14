@@ -32,8 +32,9 @@ _spawnListType = _display displayCtrl 12354;
 _spawnHeader = _display displayCtrl 12355;
 _spawnedList = _display displayCtrl 12356;
 _spawnedHeader = _display displayCtrl 12357;
+_consoleResult = _display displayCtrl 12358;
 
-_ctrlsConsole = [_codeInputButton,_codeInput,_consoleList];
+_ctrlsConsole = [_codeInputButton,_codeInput,_consoleList,_consoleResult];
 _ctrlsLogs = [_logs,_logsInfos];
 _ctrlsAdmin = [_Aactions,_list];
 _ctrlsSettings = [_filterLowLogs,_filterLowLogsText,_showMess,_showMessText];
@@ -101,6 +102,13 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsAdmin;
   {_x ctrlShow false} forEach _ctrlsSpawn;
   {_x ctrlShow true} forEach _ctrlsConsole;
+
+  with profileNamespace do {
+    if(isnil "ac_lastExecs") then {ac_lastExecs = []};
+    if(count ac_lastExecs > 20) then {
+    ac_lastExecs deleteAt 0;
+    };
+  };
   
   lbClear _consoleList;
   {

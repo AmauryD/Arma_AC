@@ -44,10 +44,16 @@ switch(_mode) do {
        };
       };
       case 6:{
-        hint "W.I.P";
+        if(!serverCommandExecutable "#kick") then {
+        hint "You need to be logged in admin for now :(";
+        };
+        serverCommand format ["#kick %1",name _player];
       };
       case 7:{
-        hint "W.I.P";
+        if(!serverCommandExecutable "#exec ban") then {
+        hint "You need to be logged in admin for now :(";
+        };
+        serverCommand format ["#exec ban %1",name _player];
       };
     };
    };
@@ -107,9 +113,7 @@ switch(_mode) do {
         ["Open",true] spawn BIS_fnc_arsenal;
       };
       case 9:{
-        _display closeDisplay 0;
-        hintSilent "80% bugged...";
-        ["Open",true] spawn BIS_fnc_garage;
+        hintSilent "Disabled.";
       };
       case 10:{
       _player switchCamera "EXTERNAL";
@@ -121,11 +125,17 @@ switch(_mode) do {
       };
 
       case 12:{
-        hint "W.I.P";
+        if(!serverCommandExecutable "#kick") then {
+        hint "You need to be logged in admin for now :(";
+        };
+        serverCommand format ["#kick %1",name _player];
       };
 
       case 13:{
-        hint "W.I.P";
+        if(!serverCommandExecutable "#exec ban") then {
+        hint "You need to be logged in admin for now :(";
+        };
+        serverCommand format ["#exec ban %1",name _player];
       };
     };
    };

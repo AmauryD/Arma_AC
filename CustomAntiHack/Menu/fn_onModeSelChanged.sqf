@@ -47,9 +47,8 @@ if(!(_player isEqualTo player)) then {
     _Aactions lbSetColor [_index, [0, 255, 55, 0.9]];
     };
     ADD_ACTION("arsenal",8);
-    ADD_ACTION("garage (véhicules god)",9);
     ADD_ACTION("spectating off",10);
-    ADD_ACTION("camera libre",11);
+    ADD_ACTION("free camera",11);
     ADD_ACTION("kick",12);
     ADD_ACTION("ban",13);
 };

@@ -42,6 +42,7 @@ class ac_menu {
 		class Mode : ac_RscCombo 
 		{
 			idc = 12343;
+			colorBackground[] = {0, 0, 0, 0.9};
 
 			x = 0.5;
 			y = 0.2;
@@ -133,13 +134,14 @@ class ac_menu {
 		  w = 0.75; h = 0.2;
 		};
 
-		class executedList : ac_RscListBox 
+		class consoleResult : ac_RscEdit
 		{
-			idc = 12350;
-			sizeEx = 0.030;
-
-			x = 0.15; y = 0.60;
-			w = 0.75; h = 0.25;
+		  idc = 12358;
+		  text = "";
+		  multiline = 1;
+		  canModify = 0;
+		  x = 0.15; y = 0.5;
+		  w = 0.75; h = 0.05;
 		};
 
 		class consoleExec : ac_RscButtonMenu
@@ -148,9 +150,18 @@ class ac_menu {
 			text = "exec";
 			onButtonClick = "[] call ac_fnc_consoleExec";
 			x = 0 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
-			y = 0.55 - (1 / 25);
+			y = 0.62 - (1 / 25);
 			w = (6.25 / 40);
 			h = (1 / 25);
+		};
+
+		class executedList : ac_RscListBox 
+		{
+			idc = 12350;
+			sizeEx = 0.030;
+
+			x = 0.15; y = 0.65;
+			w = 0.75; h = 0.2;
 		};
 
 		class spawnHeader : ac_RscText

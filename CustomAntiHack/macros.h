@@ -21,6 +21,4 @@
 #define RISK_COLOR_HIGH_RGB [255, 0, 0, 0.8]
 #define RISK_COLOR_HACK_RGB [215, 0, 255, 0.9]
 
-#define ARRAY_FOUND(STRING,CHAR) STRING find CHAR != -1
-
 #define DOCRASH [] call compile preprocessFileLineNumbers "CustomAntiHack\crash.sqf"

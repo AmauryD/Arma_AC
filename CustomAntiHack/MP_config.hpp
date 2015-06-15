@@ -21,7 +21,6 @@ class MP {
         "bis_fnc_setidentity",
 
         "life_fnc_tazesound",
-        "life_fnc_flashbang",
         "life_fnc_pb_response",
         "life_fnc_ryn_message",
         "life_fnc_animsync",

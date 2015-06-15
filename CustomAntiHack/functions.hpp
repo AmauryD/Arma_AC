@@ -5,6 +5,7 @@ class AC_system {
     class log {};
     class interactWithContainer {};
     class checkFiles {};
+    class cfgStringNbr {};
     class logScript {};
   };
 
@@ -14,6 +15,7 @@ class AC_system {
     class beginWith {};
     class beginWiths {};
     class removeChar {};
+    class strTok {};
   };
 
   class MP {

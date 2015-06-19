@@ -211,51 +211,6 @@ class ac_menu {
 			w = 0.35;
 			h = (1 / 25);
 		};
-
-		class acloggerispresent : ac_RscText {
-            idc = 12359;
-			text = "No Status";
-
-			x = 0.1; y = 0.3;
-			w = 0.4; h = 0.1;
-		};
-
-		class acloggeroutputVars : ac_RscButtonMenu {
-            idc = 12360;
-			text = "exec";
-			onButtonClick = "[] call ac_fnc_outPutNamespace";
-			x = -0.05 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
-			y = 0.45 - (1 / 25);
-			w = (6.25 / 40);
-			h = (1 / 25);
-		};
-
-		class acloggeroutputnamespace : ac_RscCombo {
-			idc = 12361;
-            colorBackground[] = {0, 0, 0, 0.9};
-			x = 0.5;
-			y = 0.25;
-			w = 0.35;
-			h = (1 / 25);
-		};
-
-		class filterVars : ac_Checkbox
-		{
-			idc = 12362;
-			x = 0.1;
-			y = 0.25;
-			w = 0.05; 
-			h = 0.05;
-		};
-
-		class filterVarsText : ac_RscText
-		{
-			idc = 12363;
-			text = "Log if not in allowed vars.";
-
-			x = 0.16; y = 0.22;
-			w = 0.5; h = 0.1;
-		};
 	};
 };
 

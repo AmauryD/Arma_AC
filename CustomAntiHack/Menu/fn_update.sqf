@@ -8,9 +8,8 @@ By [utopia] Amaury
 #define CONSOLE_MENU 2
 #define SETTINGS_MENU 3
 #define SPAWN_MENU 4
-#define ACLOGGER_MENU 5
 
-private["_display","_list","_acloggerFilterOutput","_logs","_consoleList","_admins","_color","_acloggerPresentText","_ctrlsConsole","_ctrlsLogs","_ctrlsAdmin","_ctrlsSettings","_ctrlsSpawn","_spawnedList","_ctrlsAclogger"];
+private["_display","_list","_logs","_consoleList","_admins","_color","_ctrlsConsole","_ctrlsLogs","_ctrlsAdmin","_ctrlsSettings","_ctrlsSpawn","_spawnedList"];
 disableSerialization;
 _mode = _this select 0;
 
@@ -34,18 +33,12 @@ _spawnHeader = _display displayCtrl 12355;
 _spawnedList = _display displayCtrl 12356;
 _spawnedHeader = _display displayCtrl 12357;
 _consoleResult = _display displayCtrl 12358;
-_acloggerPresentText = _display displayCtrl 12359;
-_acloggerOutPutVars = _display displayCtrl 12360;
-_acloggerNamespaceType = _display displayCtrl 12361;
-_acloggerFilterOutput = _display displayCtrl 12362;
-_acloggerFilterOutputText = _display displayCtrl 12363;
 
 _ctrlsConsole = [_codeInputButton,_codeInput,_consoleList,_consoleResult];
 _ctrlsLogs = [_logs,_logsInfos];
 _ctrlsAdmin = [_Aactions,_list];
 _ctrlsSettings = [_filterLowLogs,_filterLowLogsText,_showMess,_showMessText];
 _ctrlsSpawn = [_spawnList,_spawnListType,_spawnHeader,_spawnedList,_spawnedHeader];
-_ctrlsAclogger = [_acloggerNamespaceType,_acloggerOutPutVars,_acloggerPresentText,_acloggerFilterOutput,_acloggerFilterOutputText];
 
 switch(_mode) do {
   case LOGS_MENU: {
@@ -53,7 +46,6 @@ switch(_mode) do {
     {_x ctrlShow false} forEach _ctrlsConsole;
     {_x ctrlShow false} forEach _ctrlsSettings;
     {_x ctrlShow false} forEach _ctrlsSpawn;
-    {_x ctrlShow false} foreach _ctrlsAclogger;
     {_x ctrlShow true} forEach _ctrlsLogs;
     lbClear _logs;
     
@@ -87,7 +79,6 @@ switch(_mode) do {
     {_x ctrlShow false} forEach _ctrlsSettings;
     {_x ctrlShow false} forEach _ctrlsLogs;
     {_x ctrlShow false} forEach _ctrlsSpawn;
-    {_x ctrlShow false} foreach _ctrlsAclogger;
     {_x ctrlShow true} forEach _ctrlsAdmin;
     lbClear _list;
     _admins = [] call ac_fnc_getAdmins;
@@ -99,7 +90,6 @@ switch(_mode) do {
 			  _name = "[admin]" + _name;
 		  };
 		  _index = _list lbAdd _name;
-      _list lbSetTooltip [_index, getplayeruid _x];
 		  _list lbSetData [_index,getplayeruid _x];
 	    };
     }foreach playableUnits;
@@ -111,7 +101,6 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsLogs;
   {_x ctrlShow false} forEach _ctrlsAdmin;
   {_x ctrlShow false} forEach _ctrlsSpawn;
-  {_x ctrlShow false} foreach _ctrlsAclogger;
   {_x ctrlShow true} forEach _ctrlsConsole;
 
   with profileNamespace do {
@@ -139,7 +128,6 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsAdmin;
   {_x ctrlShow false} forEach _ctrlsConsole;
   {_x ctrlShow false} forEach _ctrlsSpawn;
-  {_x ctrlShow false} foreach _ctrlsAclogger;
   {_x ctrlShow true} forEach _ctrlsSettings;
   };
 
@@ -148,18 +136,8 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsAdmin;
   {_x ctrlShow false} forEach _ctrlsConsole;
   {_x ctrlShow false} forEach _ctrlsSettings;
-  {_x ctrlShow false} foreach _ctrlsAclogger;
   {_x ctrlShow true} forEach _ctrlsSpawn;
 
   [] call ac_fnc_updateSpawnedList;
-  };
-
-  case ACLOGGER_MENU:{
-  {_x ctrlShow false} forEach _ctrlsLogs;
-  {_x ctrlShow false} forEach _ctrlsAdmin;
-  {_x ctrlShow false} forEach _ctrlsConsole;
-  {_x ctrlShow false} forEach _ctrlsSettings;
-  {_x ctrlShow false} forEach _ctrlsSpawn;
-  {_x ctrlShow true} foreach _ctrlsAclogger;
   };
 };

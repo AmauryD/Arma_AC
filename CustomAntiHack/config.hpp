@@ -9,7 +9,7 @@ mp_enabled = true; //enable filtering packets via mp functions
 debug = true; //debug mode , just to not be kicked every time when testing ...
 
 admins[] = {
-    //"76561197970859000"
+    "76561197970859000"
 };
 
 badFiles[] = {

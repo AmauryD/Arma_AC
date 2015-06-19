@@ -8,10 +8,6 @@ create a description.ext file and add this code :
 #include "CustomAntiHack\config.hpp"
 #include "CustomAntiHack\Menu\Menu.hpp"
 
-class cfgFunctions {
-	#include "CustomAntiHack\functions.hpp"
-};
-
 create a init.sqf file and add this code
 
 if(isServer) then {

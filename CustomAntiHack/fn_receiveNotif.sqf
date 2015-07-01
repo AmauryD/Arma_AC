@@ -3,10 +3,12 @@
 By [utopia] Amaury
 16/05/2015
 */
-
+REQUIRE_ADMIN;
 _secLevel = [_this,0,0,[0]] call bis_fnc_param;
 _file = [_this,1,"",[""]] call bis_fnc_param;
 _text = [_this,2,"",[""]] call bis_fnc_param;
+
+diag_log _text;
 
 if(isnil "ac_logs") then {ac_logs = []};
 ac_logs pushBack [_secLevel,_file,_text];

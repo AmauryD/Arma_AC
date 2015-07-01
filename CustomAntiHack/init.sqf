@@ -6,38 +6,43 @@ updated : 23/05/2015
 contact on the ts3 : ts.utopiagaming.fr or the website www.utopiagaming.fr
 */
 
-if(isServer) exitWith {};
+scriptName "ac_init_client";
+REQUIRE_CLIENT(nil);
+COMPILE_INIT;
 
+// _dir variable is used in the COMPILE macro , if you want to use the function : [_dir,_file,fn_name] call ac_compile
+_dir = "CustomAntiHack\basic_functions";
+COMPILE("fn_strTok",               "ac_fnc_strTok");
+COMPILE("fn_removeChar",           "ac_fnc_removeChar");
+COMPILE("fn_findPlayerByUid",      "ac_fnc_findPlayerByUid");
+COMPILE("fn_beginWith",            "ac_fnc_beginWith");
+COMPILE("fn_beginWiths",           "ac_fnc_beginWiths");
 
+_dir = "CustomAntiHack";
+COMPILE("fn_getAdmins",            "ac_fnc_getAdmins");
+COMPILE("fn_receiveNotif",         "ac_fnc_receiveNotif");
+COMPILE("fn_receiveAdmin",         "ac_fnc_receiveAdmin");
+COMPILE("fn_cfgStringNbr",         "ac_fnc_cfgStringNbr");
+COMPILE("fn_checkFiles",           "ac_fnc_checkFiles");
+COMPILE("fn_interactWithContainer","ac_fnc_interactWithContainer");
 
-ac_fnc_strTok = compileFinal preprocessFileLineNumbers "CustomAntiHack\basic_functions\fn_strTok.sqf";
-ac_fnc_removeChar = compileFinal preprocessFileLineNumbers "CustomAntiHack\basic_functions\fn_removeChar.sqf";
-ac_fnc_findPlayerByUid = compileFinal preprocessFileLineNumbers "CustomAntiHack\basic_functions\fn_findPlayerByUid.sqf";
-ac_fnc_beginWith = compileFinal preprocessFileLineNumbers "CustomAntiHack\basic_functions\fn_beginWith.sqf";
-ac_fnc_beginWiths = compileFinal preprocessFileLineNumbers "CustomAntiHack\basic_functions\fn_beginWiths.sqf";
+_dir = "CustomAntiHack\menu";
+COMPILE("fn_updateSpawnedList",    "ac_fnc_updateSpawnedList");
+COMPILE("fn_update",               "ac_fnc_update");
+COMPILE("fn_outputNamespace",      "ac_fnc_outputNamespace");
+COMPILE("fn_open",                 "ac_fnc_open");
+COMPILE("fn_onSpawnTypeChanged",   "ac_fnc_onSpawnTypeChanged");
+COMPILE("fn_onSpawnedClick",       "ac_fnc_onSpawnedClick");
+COMPILE("fn_onSpawnClick",         "ac_fnc_onSpawnClick");
+COMPILE("fn_onModeSelChanged",     "ac_fnc_onModeSelChanged");
+COMPILE("fn_onLogSelChanged",      "ac_fnc_onLogSelChanged");
+COMPILE("fn_onAction",             "ac_fnc_onAction");
+COMPILE("fn_copyConsoleLBSel",     "ac_fnc_copyConsoleLBSel");
+COMPILE("fn_consoleExec",          "ac_fnc_consoleExec");
+COMPILE("fn_changeMenu",           "ac_fnc_changeMenu");
 
-ac_fnc_getAdmins = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_getAdmins.sqf";
-ac_fnc_receiveNotif = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_receiveNotif.sqf";
-ac_fnc_receiveAdmin = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_receiveAdmin.sqf";
-ac_fnc_cfgStringNbr = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_cfgStringNbr.sqf";
-ac_fnc_checkFiles = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_checkFiles.sqf";
-ac_fnc_interactWithContainer = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_interactWithContainer.sqf";
-
-ac_fnc_updateSpawnedList = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_updateSpawnedList.sqf";
-ac_fnc_update = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_update.sqf";
-ac_fnc_outputNamespace = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_outputNamespace.sqf";
-ac_fnc_open = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_open.sqf";
-ac_fnc_onSpawnTypeChanged = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_onSpawnTypeChanged.sqf";
-ac_fnc_onSpawnedClick = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_onSpawnedClick.sqf";
-ac_fnc_onSpawnClick = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_onSpawnClick.sqf";
-ac_fnc_onModeSelChanged = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_onModeSelChanged.sqf";
-ac_fnc_onLogSelChanged = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_onLogSelChanged.sqf";
-ac_fnc_onAction = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_onAction.sqf";
-ac_fnc_copyConsoleLBSel = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_copyConsoleLBSel.sqf";
-ac_fnc_consoleExec = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_consoleExec.sqf";
-ac_fnc_changeMenu = compileFinal preprocessFileLineNumbers "CustomAntiHack\menu\fn_changeMenu.sqf";
-
-waitUntil{!isnil "BIS_fnc_init" && BIS_fnc_init};
+waitUntil{!isnil "BIS_fnc_init"};
+waitUntil{BIS_fnc_init};
 
 if(!AC_ENABLED) exitWith {};
 

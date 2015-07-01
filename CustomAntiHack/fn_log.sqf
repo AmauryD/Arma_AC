@@ -7,6 +7,7 @@ _securityRisk = [_this,0,1,[0]] call bis_fnc_param;
 _file = [_this,1,"noFile",[""]] call bis_fnc_param;
 _content = [_this,2,"noText",[""]] call bis_fnc_param;
 
+diag_log _content;
 _toLog = [_securityRisk,_file,_content];
 
 if(isNil "ac_logs") then {ac_logs = []};

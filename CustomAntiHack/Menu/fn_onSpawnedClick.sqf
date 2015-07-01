@@ -1,3 +1,5 @@
+#include "macros.h"
+REQUIRE_MENU_OPEN(nil);
 private "_id";
 
 disableSerialization;

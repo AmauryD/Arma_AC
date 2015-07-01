@@ -6,7 +6,8 @@
 By [utopia] Amaury
 14/05/2015
 */
-if(!(getplayeruid player in (getArray (AC_CFG >> "admins")))) exitWith {DOCRASH};
+REQUIRE_ADMIN;
+REQUIRE_MENU_CLOSED(nil);
 disableSerialization;
 createDialog "ac_menu";
 
@@ -30,6 +31,7 @@ ADD_TAB("Console");
 ADD_TAB("Options");
 ADD_TAB("SpawnMenu");
 ADD_TAB("Aclogger");
+ADD_TAB("ACconfig view");
 
 ADD_TAB_NAMESPACE("missionNamespace");
 ADD_TAB_NAMESPACE("parsingNamespace");

@@ -23,4 +23,21 @@
 
 #define ARRAY_FOUND(STRING,CHAR) STRING find CHAR != -1
 
+#define IS_ADMIN getplayeruid player in (getArray (AC_CFG >> "admins"))
+
+#define REQUIRE_SERVER(exitCode) if(!isServer) exitWith {exitCode}
+#define REQUIRE_CLIENT(exitCode) if(isServer) exitWith {exitCode}
+#define REQUIRE_MENU_OPEN(exitCode) if(isNull findDisplay 12340) exitWith {exitCode}
+#define REQUIRE_MENU_CLOSED(exitCode) if(!isNull findDisplay 12340) exitWith {exitCode}
+
 #define DOCRASH [] call compile preprocessFileLineNumbers "CustomAntiHack\crash.sqf"
+
+#define COMPILE(FILENAME,FNCNAME) [_dir,FILENAME,FNCNAME] call ac_compile
+#define COMPILE_INIT if(!isNil "ac_compile") then { \
+ac_compile = ""; \
+if(!(ac_compile isEqualTo "")) exitWith {DOCRASH}; \
+}; \
+ac_compile = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_compileFinal.sqf"; \
+diag_log "compile init finished" 
+
+#define REQUIRE_ADMIN() if(!(getplayeruid player in (getArray (AC_CFG >> "admins")))) exitWith {DOCRASH}

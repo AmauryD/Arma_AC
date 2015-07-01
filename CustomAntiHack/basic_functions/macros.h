@@ -21,4 +21,20 @@
 #define RISK_COLOR_HIGH_RGB [255, 0, 0, 0.8]
 #define RISK_COLOR_HACK_RGB [215, 0, 255, 0.9]
 
+#define ARRAY_FOUND(STRING,CHAR) STRING find CHAR != -1
+
+#define IS_ADMIN getplayeruid player in (getArray (AC_CFG >> "admins"))
+
+#define REQUIRE_SERVER(exitCode) if(!isServer) exitWith {exitCode};
+#define REQUIRE_CLIENT(exitCode) if(!isDedicated) exitWith {exitCode};
+
+#define COMPILE(FILENAME,FNCNAME) [_dir,FILENAME,FNCNAME] call ac_compile
+#define COMPILE_INIT if(!isNil "ac_compile") then { \
+ac_compile = ""; \
+if(!(ac_compile isEqualTo "")) exitWith {DOCRASH}; \
+}; \
+ac_compile = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_compileFinal.sqf"; \
+diag_log "compile init finished" 
+
 #define DOCRASH [] call compile preprocessFileLineNumbers "CustomAntiHack\crash.sqf"
+#define REQUIRE_ADMIN if(!(getplayeruid player in (getArray (AC_CFG >> "admins")))) exitWith {DOCRASH}

@@ -1,7 +1,10 @@
+#include "macros.h"
 /*
 By [utopia] Amaury
 14/05/2015
 */
+REQUIRE_ADMIN;
+REQUIRE_MENU_OPEN(DOCRASH);
 private ["_index","_list","_display","_plist","_uid","_player","_mode"];
 disableSerialization;
 _list = _this select 0;

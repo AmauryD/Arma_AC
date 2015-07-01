@@ -256,6 +256,12 @@ class ac_menu {
 			x = 0.16; y = 0.22;
 			w = 0.5; h = 0.1;
 		};
+
+		class acConfig : ac_RscTree {
+            idc = 12364;
+			x = 0.1; y = 0.30;
+			w = 0.4; h = 0.45;
+		};
 	};
 };
 

@@ -1,3 +1,6 @@
+#include "macros.h"
+REQUIRE_MENU_OPEN(nil);
+
 disableSerialization;
 _list = _this select 0;
 _index = _this select 1;

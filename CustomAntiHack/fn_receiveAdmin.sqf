@@ -3,6 +3,7 @@
 By [utopia] Amaury
 16/05/2015
 */
+REQUIRE_ADMIN;
 ac_logs = [_this,0,[],[[]]] call bis_fnc_param;
 ac_god_active = false;
 ac_god_v_active = false;
@@ -16,7 +17,7 @@ systemChat "shift + >< key to open the menu.";
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
 _code = _this select 1;
 _shift = _this select 2;
-if(_code == 86 && _shift && (getplayeruid player in (getArray (missionConfigFile >> "antiCheat" >> "admins")))) then {
+if(_code == 86 && _shift && (getplayeruid player in (getArray (AC_CFG >> "admins")))) then {
 	[] call ac_fnc_open;
 };
 }];

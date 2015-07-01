@@ -3,7 +3,8 @@
 By [utopia] Amaury
 14/05/2015
 */
-if(!(getplayeruid player in (getArray (AC_CFG >> "admins")))) exitWith {DOCRASH};
+REQUIRE_ADMIN;
+REQUIRE_MENU_OPEN(nil);
 disableSerialization;
 _display = findDisplay 12340;
 _codeInput = _display displayCtrl 12348;

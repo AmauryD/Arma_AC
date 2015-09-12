@@ -72,7 +72,7 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
 
 [] spawn {
 
- [[],[],[],[]] params ["_forbidden_variables","_allowed_variables","_cache"];
+ [[],[],[]] params ["_forbidden_variables","_allowed_variables","_cache"];
 
  {_allowed_variables pushBack (tolower _x)}foreach getArray (AC_CFG_VARS_VARS >> "allowed");
  {_forbidden_variables pushBack (tolower _x)}foreach getArray (AC_CFG_VARS_VARS >> "forbidden");

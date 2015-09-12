@@ -9,6 +9,12 @@
 #define AC_ENABLED (getNumber (AC_CFG >> "enabled") == 1)
 #define MP_ENABLED (getNumber (AC_CFG >> "mp_enabled") == 1)
 
+#define DISPLAY_CHECK (getNumber (AC_CFG >> "display_check") == 1)
+#define VEHICLES_CHECK (getNumber (AC_CFG >> "vehicles_check") == 1)
+#define WEAPONSHOLDER_CHECK (getNumber (AC_CFG >> "weaponHolder_check") == 1)
+#define VARIABLES_CHECK (getNumber (AC_CFG >> "variables_check") == 1)
+#define FILES_CHECK (getNumber (AC_CFG >> "files_check") == 1)
+
 #define RISK_LOW 0
 #define RISK_HIGH 1
 #define RISK_HACK 2
@@ -25,16 +31,19 @@
 
 #define IS_ADMIN getplayeruid player in (getArray (AC_CFG >> "admins"))
 
-#define REQUIRE_SERVER(exitCode) if(!isServer) exitWith {exitCode};
-#define REQUIRE_CLIENT(exitCode) if(!isDedicated) exitWith {exitCode};
+#define REQUIRE_SERVER(exitCode) if(!isServer) exitWith {exitCode}
+#define REQUIRE_CLIENT(exitCode) if(isServer) exitWith {exitCode}
+#define REQUIRE_MENU_OPEN(exitCode) if(isNull findDisplay 12340) exitWith {exitCode}
+#define REQUIRE_MENU_CLOSED(exitCode) if(!isNull findDisplay 12340) exitWith {exitCode}
 
-#define COMPILE(FILENAME,FNCNAME) [_dir,FILENAME,FNCNAME] call ac_compile
+#define DOCRASH [] call compile preprocessFileLineNumbers "CustomAntiHack\crash.sqf"
+
+#define COMPILE(FILENAME,FNCNAME) assert ([_dir,FILENAME,FNCNAME] call ac_compile)
 #define COMPILE_INIT if(!isNil "ac_compile") then { \
 ac_compile = ""; \
 if(!(ac_compile isEqualTo "")) exitWith {DOCRASH}; \
 }; \
-ac_compile = compileFinal preprocessFileLineNumbers "CustomAntiHack\fn_compileFinal.sqf"; \
+ac_compile = compileFinal preprocessFileLineNumbers "CustomAntiHack\basic_functions\fn_compileFinal.sqf"; \
 diag_log "compile init finished" 
 
-#define DOCRASH [] call compile preprocessFileLineNumbers "CustomAntiHack\crash.sqf"
-#define REQUIRE_ADMIN if(!(getplayeruid player in (getArray (AC_CFG >> "admins")))) exitWith {DOCRASH}
+#define REQUIRE_ADMIN() if(!(getplayeruid player in (getArray (AC_CFG >> "admins")))) exitWith {DOCRASH}

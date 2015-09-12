@@ -1,3 +1,4 @@
+/**
 private ["_string","_token","_tokened","_lastIndex"];
 _string = toArray ([_this,0,"",[""]] call bis_fnc_param);
 _token = toArray ([_this,1,"",[""]] call bis_fnc_param);
@@ -15,3 +16,9 @@ while{_string find (_token select 0) != -1} do {
 _tokened pushBack (toString (_string select [_lastIndex,count _string - 1]));
 
 _tokened;
+**/
+
+_string = [_this,0,"",[""]] call bis_fnc_param;
+_token = [_this,1,"",[""]] call bis_fnc_param;
+
+_string splitString _token

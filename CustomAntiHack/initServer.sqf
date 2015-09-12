@@ -9,15 +9,17 @@ scriptName "ac_init_server";
 REQUIRE_SERVER(nil);
 COMPILE_INIT;
 
-_dir = "CustomAntiHack";
+_dir = "CustomAntiHack\ac_functions";
 COMPILE("fn_logScript",            "ac_fnc_logScript");
 COMPILE("fn_log",                  "ac_fnc_log");
 COMPILE("fn_adminRequest",         "ac_fnc_adminRequest");
-COMPILE("fn_MPexec",               "ac_fnc_MPexec");
 COMPILE("fn_getAdmins",            "ac_fnc_getAdmins");
-COMPILE("fn_filterMP",             "ac_fnc_filterMP");
 COMPILE("fn_inAllowedFunctions",   "ac_fnc_inAllowedFunctions");
 
+_dir = "CustomAntiHack\ac_functions\mp";
+COMPILE("fn_MP",                   "ac_fnc_mp");
+COMPILE("fn_filterMP",             "ac_fnc_filterMP");
+COMPILE("fn_MPexec",               "ac_fnc_MPexec");
 
 _dir = "CustomAntiHack\basic_functions";
 COMPILE("fn_strTok",               "ac_fnc_strTok");

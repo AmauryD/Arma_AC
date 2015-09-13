@@ -13,8 +13,9 @@ vehicles_check = false;
 weaponHolder_check = false;
 variables_check = true;
 files_check = true;
+teleport_check = true; //experiment
 
-admins[] = {"76561197970859000"}; // your uid here
+admins[] = {}; // your uid here ex : "76561197970859000"
 
 badFiles[] = {
     "Cheat File",
@@ -105,6 +106,7 @@ class variablesCfg {
     };
 
     allowed[] = {
+
         "bis_fnc_moduleprojectile",
 "rscdisplayloading_progressmission",
 "bis_fnc_dotproduct",
@@ -458,6 +460,7 @@ class variablesCfg {
 "bis_fnc_modulepostprocess",
 "bis_fnc_movein",
 "ac_fnc_checkweapons",
+"ac_fnc_checkteleport",
 "bis_fnc_packstaticweapon",
 "bis_fnc_addstackedeventhandler",
 "bis_fnc_ambientanim",

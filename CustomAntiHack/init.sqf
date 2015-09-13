@@ -36,6 +36,8 @@ COMPILE("fn_receiveAdmin",         "ac_fnc_receiveAdmin");
 COMPILE("fn_cfgStringNbr",         "ac_fnc_cfgStringNbr");
 COMPILE("fn_interactWithContainer","ac_fnc_interactWithContainer");
 
+COMPILE("fn_checkTeleport","ac_fnc_checkTeleport");
+
 _dir = "CustomAntiHack\menu";
 COMPILE("fn_updateSpawnedList",    "ac_fnc_updateSpawnedList");
 COMPILE("fn_update",               "ac_fnc_update");
@@ -58,7 +60,7 @@ if(!AC_ENABLED) exitWith {};
 
 "ac_fnc_mp_packet" addPublicVariableEventHandler ac_fnc_mpexec;
 
-if(getplayeruid player in (getArray (AC_CFG >> "admins"))) exitWith {
+if(IS_ADMIN) exitWith {
   [[player],"ac_fnc_adminRequest",false,false] call ac_fnc_mp;
 };
 
@@ -69,6 +71,7 @@ if(getText(configFile >> "CfgFunctions" >> "init") != "A3\functions_f\initFuncti
 
 if(WEAPONSHOLDER_CHECK) then { player addEventHandler["Take",ac_fnc_interactWithContainer] };
 if(FILES_CHECK)         then { call AC_fnc_checkFiles };
+if(TELEPORT_CHECK)      then { ["ac_teleport_check","onMapSingleClick",ac_fnc_checkTeleport] call bis_fnc_addStackedEventHandler };
 
 [] spawn {
 
@@ -114,3 +117,4 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
   uisleep 1;
  };
 };             
+

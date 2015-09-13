@@ -14,6 +14,7 @@
 #define WEAPONSHOLDER_CHECK (getNumber (AC_CFG >> "weaponHolder_check") == 1)
 #define VARIABLES_CHECK (getNumber (AC_CFG >> "variables_check") == 1)
 #define FILES_CHECK (getNumber (AC_CFG >> "files_check") == 1)
+#define TELEPORT_CHECK (getNumber (AC_CFG >> "teleport_check") == 1)
 
 #define RISK_LOW 0
 #define RISK_HIGH 1
@@ -32,7 +33,7 @@
 #define IS_ADMIN getplayeruid player in (getArray (AC_CFG >> "admins"))
 
 #define REQUIRE_SERVER(exitCode) if(!isServer) exitWith {exitCode}
-#define REQUIRE_CLIENT(exitCode) if(isServer) exitWith {exitCode}
+#define REQUIRE_CLIENT(exitCode) if(isDedicated) exitWith {exitCode}
 #define REQUIRE_MENU_OPEN(exitCode) if(isNull findDisplay 12340) exitWith {exitCode}
 #define REQUIRE_MENU_CLOSED(exitCode) if(!isNull findDisplay 12340) exitWith {exitCode}
 

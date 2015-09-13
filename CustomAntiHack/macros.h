@@ -14,6 +14,7 @@
 #define WEAPONSHOLDER_CHECK (getNumber (AC_CFG >> "weaponHolder_check") == 1)
 #define VARIABLES_CHECK (getNumber (AC_CFG >> "variables_check") == 1)
 #define FILES_CHECK (getNumber (AC_CFG >> "files_check") == 1)
+#define TELEPORT_CHECK (getNumber (AC_CFG >> "teleport_check") == 1)
 
 #define RISK_LOW 0
 #define RISK_HIGH 1

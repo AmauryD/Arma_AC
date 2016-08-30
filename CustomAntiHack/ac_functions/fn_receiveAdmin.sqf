@@ -4,6 +4,8 @@ By [utopia] Amaury
 16/05/2015
 */
 REQUIRE_ADMIN;
+REQUIRE_CLIENT;
+
 ac_logs = [_this,0,[],[[]]] call bis_fnc_param;
 ac_god_active = false;
 ac_god_v_active = false;

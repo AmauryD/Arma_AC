@@ -109,7 +109,7 @@ switch(_mode) do {
       _list lbSetTooltip [_index, getplayeruid _x];
 		  _list lbSetData [_index,getplayeruid _x];
 	    };
-    }foreach playableUnits;
+    }foreach allPlayers;
 
   };
 

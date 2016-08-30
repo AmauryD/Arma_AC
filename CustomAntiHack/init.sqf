@@ -7,7 +7,7 @@ contact on the ts3 : ts.utopiagaming.fr or the website www.utopiagaming.fr
 */
 
 scriptName "ac_init_client";
-REQUIRE_CLIENT(nil);
+REQUIRE_CLIENT;
 COMPILE_INIT;
 
 // _dir variable is used in the COMPILE macro , if you want to use the function : [_dir,_file,fn_name] call ac_compile
@@ -36,8 +36,6 @@ COMPILE("fn_receiveAdmin",         "ac_fnc_receiveAdmin");
 COMPILE("fn_cfgStringNbr",         "ac_fnc_cfgStringNbr");
 COMPILE("fn_interactWithContainer","ac_fnc_interactWithContainer");
 
-COMPILE("fn_checkTeleport","ac_fnc_checkTeleport");
-
 _dir = "CustomAntiHack\menu";
 COMPILE("fn_updateSpawnedList",    "ac_fnc_updateSpawnedList");
 COMPILE("fn_update",               "ac_fnc_update");
@@ -60,7 +58,7 @@ if(!AC_ENABLED) exitWith {};
 
 "ac_fnc_mp_packet" addPublicVariableEventHandler ac_fnc_mpexec;
 
-if(IS_ADMIN) exitWith {
+if(getplayeruid player in (getArray (AC_CFG >> "admins"))) exitWith {
   [[player],"ac_fnc_adminRequest",false,false] call ac_fnc_mp;
 };
 
@@ -71,11 +69,10 @@ if(getText(configFile >> "CfgFunctions" >> "init") != "A3\functions_f\initFuncti
 
 if(WEAPONSHOLDER_CHECK) then { player addEventHandler["Take",ac_fnc_interactWithContainer] };
 if(FILES_CHECK)         then { call AC_fnc_checkFiles };
-if(TELEPORT_CHECK)      then { ["ac_teleport_check","onMapSingleClick",ac_fnc_checkTeleport] call bis_fnc_addStackedEventHandler };
 
 [] spawn {
 
- [[],[],[]] params ["_forbidden_variables","_allowed_variables","_cache"];
+ [[],[],[],[]] params ["_forbidden_variables","_allowed_variables","_cache"];
 
  {_allowed_variables pushBack (tolower _x)}foreach getArray (AC_CFG_VARS_VARS >> "allowed");
  {_forbidden_variables pushBack (tolower _x)}foreach getArray (AC_CFG_VARS_VARS >> "forbidden");
@@ -117,4 +114,3 @@ if(TELEPORT_CHECK)      then { ["ac_teleport_check","onMapSingleClick",ac_fnc_ch
   uisleep 1;
  };
 };             
-

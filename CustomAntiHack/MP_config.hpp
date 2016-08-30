@@ -5,7 +5,8 @@ only packets in supported_packets will be filtered.
 
 class MP {
   supported_packets[] = {
-  "ac_fnc_mp_packet"
+  "ac_fnc_mp_packet",
+  "bis_fnc_mp_packet"
   };
   class global { //executed commands on all
     allowed_tags[] = {  // functions with other tags will be refused automaticaly

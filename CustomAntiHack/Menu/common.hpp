@@ -137,6 +137,17 @@ class ac_RscTree {
 	colorSelect[] = {1,0.5,0,1}; // Selected item fill color (when multiselectEnabled is 0)
 	colorSelectBackground[] = {0, 0, 0, 0.5};
 	colorBorder[] = {0, 0, 0, 0};
+
+	colorPicture[] = {0,0,0,0};
+	colorPictureSelected[] = {0, 0, 0, 0.5};
+	colorPictureDisabled[] = {0,0,0,0};
+	colorPictureRight[] = {0,0,0,0};
+	colorPictureRightSelected[] = {0,0,0,0};
+	colorPictureRightDisabled[] = {0,0,0,0};
+	colorPictureLeft[] = {0,0,0,0};
+	colorPictureLeftSelected[] = {0,0,0,0};
+	colorPictureLeftDisabled[] = {0,0,0,0};
+
 	borderSize = 0;
 
 	tooltip = "CT_TREE"; // Tooltip text

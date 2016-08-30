@@ -6,7 +6,7 @@ By [utopia] Amaury
 
 scriptName "ac_init_server";
 
-REQUIRE_SERVER(nil);
+REQUIRE_SERVER;
 COMPILE_INIT;
 
 _dir = "CustomAntiHack\ac_functions";

@@ -7,7 +7,8 @@ By [utopia] Amaury
 14/05/2015
 */
 REQUIRE_ADMIN;
-REQUIRE_MENU_CLOSED(nil);
+REQUIRE_MENU_CLOSED;
+
 disableSerialization;
 createDialog "ac_menu";
 

@@ -25,7 +25,7 @@ admins[] = {
 class chatCfg {
     remove_ip = true; // will remove ip with format IPV4
     remove_url = true; //will remove websites url's
-    badWords[] = {"fuck","ass"}; //example : fuck will be replaced with random symbols if the player write it in the chat bar , you can also do that with www. or http:// who will block the links
+    badWords[] = {"fuck","ass"};
 };
 
 badFiles[] = {

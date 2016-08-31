@@ -6,7 +6,7 @@ By [utopia] Amaury
 REQUIRE_ADMIN;
 REQUIRE_CLIENT;
 
-ac_logs = [_this,0,[],[[]]] call bis_fnc_param;
+ac_logs = param [0,[],[[]]];
 ac_god_active = false;
 ac_god_v_active = false;
 ac_god_v_veh = objNull;
@@ -17,9 +17,9 @@ waitUntil {!isNull findDisplay 46};
 systemChat "shift + >< key to open the menu.";
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
-_code = _this select 1;
-_shift = _this select 2;
-if(_code == 86 && _shift && (getplayeruid player in (getArray (AC_CFG >> "admins")))) then {
-	[] call ac_fnc_open;
-};
+    _code = _this select 1;
+	_shift = _this select 2;
+	if(_code == 86 && _shift && (getplayeruid player in (getArray (AC_CFG >> "admins")))) then {
+		[] call ac_fnc_open;
+	};
 }];

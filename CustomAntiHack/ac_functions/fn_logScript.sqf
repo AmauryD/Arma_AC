@@ -3,8 +3,8 @@ By [utopia] Amaury
 12/05/2015
 */
 
-_file = [_this,0,"noFile",[""]] call bis_fnc_param;
-_content = [_this,1,"noText",[""]] call bis_fnc_param;
+_file = param [0,"noFile",[""]];
+_content = param [1,"noText",[""]];
 _content = [_content,";"] call ac_fnc_removeChar;
 
 _mode = "write";

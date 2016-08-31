@@ -2,11 +2,7 @@
 By [utopia] Amaury
 12/05/2015
 */
-
-private ["_string","_return"];
-
-_array = [_this,0,[],[]] call bis_fnc_param;
-_string = [_this,1,"",[""]] call bis_fnc_param;
+params [["_array",[],[[]]],["_string","",[""]],"_return"];
 _return = false;
 
 {

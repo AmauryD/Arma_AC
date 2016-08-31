@@ -16,11 +16,6 @@ COMPILE("fn_adminRequest",         "ac_fnc_adminRequest");
 COMPILE("fn_getAdmins",            "ac_fnc_getAdmins");
 COMPILE("fn_inAllowedFunctions",   "ac_fnc_inAllowedFunctions");
 
-_dir = "CustomAntiHack\ac_functions\mp";
-COMPILE("fn_MP",                   "ac_fnc_mp");
-COMPILE("fn_filterMP",             "ac_fnc_filterMP");
-COMPILE("fn_MPexec",               "ac_fnc_MPexec");
-
 _dir = "CustomAntiHack\basic_functions";
 COMPILE("fn_strTok",               "ac_fnc_strTok");
 COMPILE("fn_removeChar",           "ac_fnc_removeChar");
@@ -38,9 +33,3 @@ if(isNil "_version") then {
 };
 
 ac_logs = [];
-
-if(MP_ENABLED) then {
-  {
-	_x addPublicVariableEventHandler {_this call ac_fnc_MPexec};
-  }foreach getArray (AC_CFG_MP >> "supported_packets");
-};

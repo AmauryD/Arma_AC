@@ -10,14 +10,8 @@ create a description.ext file and add this code :
 
 create a init.sqf file and add this code
 
-if(isServer) exitWith {
+if(isDedicated) then {
 	[] execVM "CustomAntiHack\initServer.sqf";
-	if(hasInterface) then {
-	waitUntil {
-	  !isNil "ac_fnc_log"
-	};
+}else{
 	[] execVM "CustomAntiHack\init.sqf";
-  };
 };
-
-[] execVM "CustomAntiHack\init.sqf";

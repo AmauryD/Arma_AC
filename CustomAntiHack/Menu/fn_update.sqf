@@ -9,7 +9,6 @@ By [utopia] Amaury
 #define SETTINGS_MENU 3
 #define SPAWN_MENU 4
 #define ACLOGGER_MENU 5
-#define AC_CFG_MENU 6
 
 REQUIRE_ADMIN;
 REQUIRE_MENU_OPEN(nil);
@@ -42,15 +41,13 @@ _acloggerOutPutVars = _display displayCtrl 12360;
 _acloggerNamespaceType = _display displayCtrl 12361;
 _acloggerFilterOutput = _display displayCtrl 12362;
 _acloggerFilterOutputText = _display displayCtrl 12363;
-_ac_cfg_tree = _display displayCtrl 12364;
 
 _ctrlsConsole = [_codeInputButton,_codeInput,_consoleList,_consoleResult];
 _ctrlsLogs = [_logs,_logsInfos];
 _ctrlsAdmin = [_Aactions,_list];
 _ctrlsSettings = [_filterLowLogs,_filterLowLogsText,_showMess,_showMessText];
 _ctrlsSpawn = [_spawnList,_spawnListType,_spawnHeader,_spawnedList,_spawnedHeader];
-_ctrlsAclogger = [_acloggerNamespaceType,_acloggerOutPutVars,_acloggerPresentText,_acloggerFilterOutput,_acloggerFilterOutputText];
-_ctrlsCfg = [_ac_cfg_tree];
+_ctrlsAclogger = [_acloggerNamespaceType,_acloggerOutPutVars,_acloggerPresentText,_acloggerFilterOutput,_acloggerFilterOutputText];;
 
 switch(_mode) do {
   case LOGS_MENU: {
@@ -59,7 +56,6 @@ switch(_mode) do {
     {_x ctrlShow false} forEach _ctrlsSettings;
     {_x ctrlShow false} forEach _ctrlsSpawn;
     {_x ctrlShow false} foreach _ctrlsAclogger;
-    {_x ctrlShow false} forEach _ctrlsCfg;
     {_x ctrlShow true} forEach _ctrlsLogs;
     lbClear _logs;
     
@@ -94,7 +90,6 @@ switch(_mode) do {
     {_x ctrlShow false} forEach _ctrlsLogs;
     {_x ctrlShow false} forEach _ctrlsSpawn;
     {_x ctrlShow false} foreach _ctrlsAclogger;
-    {_x ctrlShow false} forEach _ctrlsCfg;
     {_x ctrlShow true} forEach _ctrlsAdmin;
     lbClear _list;
     _admins = [] call ac_fnc_getAdmins;
@@ -106,7 +101,13 @@ switch(_mode) do {
 			  _name = "[admin]" + _name;
 		  };
 		  _index = _list lbAdd _name;
-      _list lbSetTooltip [_index, getplayeruid _x];
+      _list lbSetTooltip [_index, format["UID : %1\nWEAPON : %2\nPISTOL : %3\nHEALTH : %4/100\nVEHICLE : %5\nLOCATION : %6",
+      getplayeruid _x,
+      getText (configFile >> "cfgweapons" >> primaryWeapon _x >> "displayName"),
+      getText (configFile >> "cfgweapons" >> secondaryWeapon _x >> "displayName"),
+      100 - (getDammage _x * 100),
+      getText (configFile >> "CfgVehicles" >> typeOf vehicle _x >> "displayName"),
+      text nearestLocation [ getPosATL _x, ""]]];
 		  _list lbSetData [_index,getplayeruid _x];
 	    };
     }foreach allPlayers;
@@ -119,7 +120,6 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsAdmin;
   {_x ctrlShow false} forEach _ctrlsSpawn;
   {_x ctrlShow false} foreach _ctrlsAclogger;
-  {_x ctrlShow false} forEach _ctrlsCfg;
   {_x ctrlShow true} forEach _ctrlsConsole;
 
   with profileNamespace do {
@@ -148,7 +148,6 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsConsole;
   {_x ctrlShow false} forEach _ctrlsSpawn;
   {_x ctrlShow false} foreach _ctrlsAclogger;
-  {_x ctrlShow false} forEach _ctrlsCfg;
   {_x ctrlShow true} forEach _ctrlsSettings;
   };
 
@@ -158,7 +157,6 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsConsole;
   {_x ctrlShow false} forEach _ctrlsSettings;
   {_x ctrlShow false} foreach _ctrlsAclogger;
-  {_x ctrlShow false} forEach _ctrlsCfg;
   {_x ctrlShow true} forEach _ctrlsSpawn;
 
   [] call ac_fnc_updateSpawnedList;
@@ -170,29 +168,10 @@ switch(_mode) do {
   {_x ctrlShow false} forEach _ctrlsConsole;
   {_x ctrlShow false} forEach _ctrlsSettings;
   {_x ctrlShow false} forEach _ctrlsSpawn;
-  {_x ctrlShow false} forEach _ctrlsCfg;
   {_x ctrlShow true} foreach _ctrlsAclogger;
 
   if(("aclogger" callExtension "version") == "") then {
   {_x ctrlEnable false} foreach _ctrlsAclogger;
   };
-  };
-
-  case AC_CFG_MENU:{
-  private["_tree"];
-  {_x ctrlShow false} forEach _ctrlsLogs;
-  {_x ctrlShow false} forEach _ctrlsAdmin;
-  {_x ctrlShow false} forEach _ctrlsConsole;
-  {_x ctrlShow false} forEach _ctrlsSettings;
-  {_x ctrlShow false} forEach _ctrlsSpawn;
-  {_x ctrlShow false} foreach _ctrlsAclogger;
-  {_x ctrlShow true} forEach _ctrlsCfg;
-  
-  _tree = _ctrlsCfg select 0;
-  _tree tvAdd [[],"AntiCheat"];
-
-  {
-     _tree tvAdd [[0],configName _x];
-  }foreach ("true" configClasses (AC_CFG));
   };
 };

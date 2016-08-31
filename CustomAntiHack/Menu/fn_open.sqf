@@ -32,7 +32,6 @@ ADD_TAB("Console");
 ADD_TAB("Options");
 ADD_TAB("SpawnMenu");
 ADD_TAB("Aclogger");
-ADD_TAB("ACconfig view");
 
 ADD_TAB_NAMESPACE("missionNamespace");
 ADD_TAB_NAMESPACE("parsingNamespace");

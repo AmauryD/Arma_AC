@@ -4,9 +4,9 @@ By [utopia] Amaury
 16/05/2015
 */
 REQUIRE_ADMIN;
-_secLevel = [_this,0,0,[0]] call bis_fnc_param;
-_file = [_this,1,"",[""]] call bis_fnc_param;
-_text = [_this,2,"",[""]] call bis_fnc_param;
+_secLevel = param [0,0,[0]];
+_file = param [1,"",[""]];
+_text = param [2,"",[""]];
 
 diag_log _text;
 

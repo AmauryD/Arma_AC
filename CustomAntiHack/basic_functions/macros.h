@@ -2,6 +2,7 @@
 #define AC_CFG MCF >> "AntiCheat"
 #define AC_CFG_MP AC_CFG >> "MP"
 #define AC_CFG_VARS AC_CFG >> "variablesCfg"
+#define AC_CFG_CHAT AC_CFG >> "chatCfg"
 #define AC_CFG_VARS_TAGS AC_CFG_VARS >> "tags"
 #define AC_CFG_VARS_VARS AC_CFG_VARS >> "variables"
 
@@ -14,6 +15,7 @@
 #define WEAPONSHOLDER_CHECK (getNumber (AC_CFG >> "weaponHolder_check") == 1)
 #define VARIABLES_CHECK (getNumber (AC_CFG >> "variables_check") == 1)
 #define FILES_CHECK (getNumber (AC_CFG >> "files_check") == 1)
+#define CHAT_CHECK (getNumber (AC_CFG >> "chat_check") == 1)
 
 #define RISK_LOW 0
 #define RISK_HIGH 1
@@ -36,6 +38,10 @@
 #define REQUIRE_MENU_OPEN(exitCode) if(isNull findDisplay 12340) exitWith {exitCode}
 #define REQUIRE_MENU_CLOSED(exitCode) if(!isNull findDisplay 12340) exitWith {exitCode}
 #define REQUIRE_ADMIN(exitCode) if(!(getplayeruid player in (getArray (AC_CFG >> "admins")))) exitWith {exitCode}
+
+#define EXEC_SERVER 2
+#define EXEC_GLOBAL_CLIENTS -2
+#define EXEC_GLOBAL 0
 
 #define DOCRASH [] call compile preprocessFileLineNumbers "CustomAntiHack\crash.sqf"
 

@@ -1,7 +1,6 @@
 private "_spawnedList";
 disableSerialization;
 _display = findDisplay 12340;
-if(isNull _display) exitWith {};
 _spawnedList = _display displayCtrl 12356;
 
 lbClear _spawnedList;

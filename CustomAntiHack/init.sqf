@@ -18,12 +18,7 @@ COMPILE("fn_findPlayerByUid",      "ac_fnc_findPlayerByUid");
 COMPILE("fn_beginWith",            "ac_fnc_beginWith");
 COMPILE("fn_beginWiths",           "ac_fnc_beginWiths");
 
-_dir = "CustomAntiHack\ac_functions\mp";
-COMPILE("fn_MP"                   ,"ac_fnc_mp");
-COMPILE("fn_MPexec"               ,"ac_fnc_mpexec");
-
 _dir = "CustomAntiHack\ac_functions";
-
 COMPILE("fn_checkFiles",           "ac_fnc_checkFiles");
 COMPILE("fn_checkVars",            "ac_fnc_checkVars");
 COMPILE("fn_checkWeapons",         "ac_fnc_checkWeapons");
@@ -35,6 +30,7 @@ COMPILE("fn_receiveNotif",         "ac_fnc_receiveNotif");
 COMPILE("fn_receiveAdmin",         "ac_fnc_receiveAdmin");
 COMPILE("fn_cfgStringNbr",         "ac_fnc_cfgStringNbr");
 COMPILE("fn_interactWithContainer","ac_fnc_interactWithContainer");
+COMPILE("fn_handleTextChat",       "ac_fnc_handleTextChat");
 
 _dir = "CustomAntiHack\menu";
 COMPILE("fn_updateSpawnedList",    "ac_fnc_updateSpawnedList");
@@ -56,14 +52,23 @@ waitUntil{BIS_fnc_init};
 
 if(!AC_ENABLED) exitWith {};
 
-"ac_fnc_mp_packet" addPublicVariableEventHandler ac_fnc_mpexec;
+
+[] spawn {
+  if(!CHAT_CHECK) exitWith {};
+  while {true} do {
+  waitUntil {!isNull findDisplay 24};
+  findDisplay 24 displayAddEventHandler ["KeyUp",ac_fnc_handleTextChat];
+  findDisplay 24 displayAddEventHandler ["KeyDown",ac_fnc_handleTextChat];
+  waitUntil {isNull findDisplay 24};
+  };
+};
 
 if(getplayeruid player in (getArray (AC_CFG >> "admins"))) exitWith {
-  [[player],"ac_fnc_adminRequest",false,false] call ac_fnc_mp;
+  [player] remoteExecCall ["ac_fnc_adminRequest",EXEC_SERVER];
 };
 
 if(getText(configFile >> "CfgFunctions" >> "init") != "A3\functions_f\initFunctions.sqf") exitWith {
-  [[RISK_HACK,"AC_LOG.log",format["%1 (%2) Incorrect initFunctions path (%3)",profileName,getPlayerUID player,getText(configFile >> "CfgFunctions" >> "init")]],"AC_fnc_log",false,false] call ac_fnc_mp;
+  [RISK_HACK,"AC_LOG.log",format["%1 (%2) Incorrect initFunctions path (%3)",profileName,getPlayerUID player,getText(configFile >> "CfgFunctions" >> "init")]] remoteExecCall ["ac_fnc_log",EXEC_SERVER];
   DOCRASH;
 };
 
@@ -79,7 +84,7 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
 
  while{true} do {
   if((unitRecoilCoefficient player) < 1) then {
-    [[RISK_HACK,"AC_LOG.log",format["%1 (%2) no recoil hack",profileName,getPlayerUID player]],"AC_fnc_log",false,false] call ac_fnc_mp;
+    [RISK_HACK,"AC_LOG.log",format["%1 (%2) no recoil hack",profileName,getPlayerUID player]] remoteExecCall ["ac_fnc_log",EXEC_SERVER];
     DOCRASH;
   };
 
@@ -87,7 +92,7 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
     _cache = [_cache,_forbidden_variables,_allowed_variables] call ac_fnc_checkVars; // cache stored in private var for security issues
   };
 
-  uisleep 20;
+  uisleep 10;
  };
 };
 

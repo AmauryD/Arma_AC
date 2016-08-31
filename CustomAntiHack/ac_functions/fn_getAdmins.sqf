@@ -10,6 +10,6 @@ _admins = [];
 	if(getplayerUid _x in (getArray (AC_CFG >> "admins")) && !isNull _x) then {
     _admins pushBack _x;
 	};
-}foreach playableUnits;
+}foreach allPlayers;
 
 _admins

@@ -1,58 +1,43 @@
 /**
-supported functions sended via mp functions (bis_fnc_mp,life_fnc_mp,...).
-only packets in supported_packets will be filtered.
+Old Version deleted and obsolete , now replaced by remoteExec Command of arma 3 v1.50
+Please go to https://community.bistudio.com/wiki/CfgRemoteExec for further informations
 **/
 
-class MP {
-  supported_packets[] = {
-  "ac_fnc_mp_packet",
-  "bis_fnc_mp_packet"
-  };
-  class global { //executed commands on all
-    allowed_tags[] = {  // functions with other tags will be refused automaticaly
-        "ac",
-        "bis"
-    };
+#define MP_FILTERING_COMMANDS 1 // 1 = yes | 0 = no
+#define MP_FILTERING_FUNCTIONS 1
 
-    functions[] = {
-        "bis_fnc_effectkilledsecondaries",
-        "bis_fnc_effectkilledairdestruction",
-        "bis_fnc_setidentity"
-    };
-  };
+#define JIP_TARGET_COMMANDS 0
+#define JIP_TARGET_FUNCTIONS 0
 
-  class client {
-    allowed_tags[] = {  // functions with other tags will be refused automaticaly
-        "ac",
-        "bis"
-    };
+#define GLOBAL 0
+#define CLIENT 1
+#define SERVER 2
 
-    functions[] = { // Les fonctions qui n'ont pas un tag whitelisté ne seront pas acceptée même si elles se trouvent dans cette liste
-    "ac_fnc_receiveadmin",
-    "ac_fnc_receivenotif",
+#define ALLOW_GLOBAL allowedTargets = GLOBAL;
+#define ALLOW_CLIENT allowedTargets = CLIENT;
+#define ALLOW_SERVER allowedTargets = SERVER;
 
-    "bis_fnc_objectvar",
-    "bis_fnc_dynamictext",
-    "bis_fnc_effectkilledsecondaries",
-    "bis_fnc_effectkilledairdestruction"
-    };
-};
-  class server {
-    allowed_tags[] = {  // functions with other tags will be refused automaticaly
-    "ac",
-    "bis"
-    };
+class CfgRemoteExec
+{
+        class Commands
+        {
+            mode = MP_FILTERING_COMMANDS;
+            jip = JIP_TARGET_COMMANDS;
+        };
+        class Functions
+        {
+            mode = MP_FILTERING_FUNCTIONS;
+            jip = JIP_TARGET_FUNCTIONS;
+                
+            class ac_fnc_receiveadmin {ALLOW_CLIENT};
+            class ac_fnc_receivenotif {ALLOW_CLIENT};
 
-    functions[] = { // Les fonctions qui n'ont pas un tag whitelisté ne seront pas acceptée même si elles se trouvent dans cette liste
-    "ac_fnc_log",
-    "ac_fnc_adminrequest",
-    "ac_fnc_logscript",
+            class ac_fnc_log {ALLOW_SERVER};
+            class ac_fnc_adminrequest {ALLOW_SERVER};
+            class ac_fnc_logscript {ALLOW_SERVER};
 
-    "bis_fnc_effectkilledairdestruction",
-    "bis_fnc_objectvar",
-    "bis_fnc_setidentity",
-    "bis_fnc_effectkilledsecondaries",
-    "bis_fnc_dynamictext"
-    };
-  };
+            class BIS_fnc_effectKilledAirDestruction {ALLOW_GLOBAL};
+            class bis_fnc_setidentity {ALLOW_GLOBAL};
+            class BIS_fnc_effectKilledSecondaries {ALLOW_GLOBAL};
+        };
 };

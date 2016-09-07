@@ -23,7 +23,7 @@ files_check = true;
 chat_check = true;
 
 admins[] = {
-//"76561197970859000","_SP_PLAYER_"
+  "76561197970859000","_SP_PLAYER_"
 }; // your uid here , don't remove SP PLAYER if you want to test in solo
 
 class chatCfg {

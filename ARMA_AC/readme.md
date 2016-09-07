@@ -1,10 +1,13 @@
-create a description.ext file and add this code : 
+###### create a description.ext file and add this code : 
 
+```sqf
 #include "ARMA_AC\config.hpp"
 #include "ARMA_AC\Menu\Menus\menus.hpp"
+```
 
-create a init.sqf file and add this code :
+###### create a init.sqf file and add this code :
 
+```sqf
 #define AC_FOLDER (getText (missionConfigFile >> "ARMA_AC" >> "folder"))
 
 if(isServer) then {
@@ -18,3 +21,4 @@ if(isServer) then {
 }else{
    [] execVM (AC_FOLDER + "\initClient.sqf");
 };
+```

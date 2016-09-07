@@ -10,7 +10,8 @@ contact me on contact@utopiagaming.org for questions and bug report
 
 - ARMA_AC
   - Organizing folders
-  - Menus
+  - Removed old menus and defines
+  - New menus
     - Admin menu 
     - Teleport menu
     - Console menu
@@ -28,7 +29,7 @@ contact me on contact@utopiagaming.org for questions and bug report
 
 - Aclogger
   - Can only write .log files
-  - Can only write in arma 3 score
+  - Can only write in arma 3 folder scope
   - Created a Logger class
   - Change the command separator to '$'
   - More secure

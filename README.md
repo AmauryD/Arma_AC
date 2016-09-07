@@ -13,9 +13,10 @@ contact me on contact@utopiagaming.org for questions and bug report
   - Removed old menus and defines
   - New menus
     - Admin menu 
-    - Teleport menu
+    - Teleport menu (in admin menu)
     - Console menu
     - Spawning menu
+    - Spectate menu (in admin menu)
     - Logs menu
   - Config File Maker 
     * Helps you making your config file and adapt to your server

@@ -28,7 +28,7 @@ contact me on contact@utopiagaming.org for questions and bug report
   - Debug mode doesn't make the client crash
   - Debug mode is now showing in chat
 
-- Aclogger
+- Aclogger -> moved in stand alone project , you can get it [here](https://github.com/AmauryD/aclogger)
   - Can only write .log files
   - Can only write in arma 3 folder scope
   - Created a Logger class

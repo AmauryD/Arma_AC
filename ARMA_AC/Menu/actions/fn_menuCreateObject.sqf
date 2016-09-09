@@ -8,6 +8,7 @@ _display = findDisplay 1234563;
 
 _objectClass = (_this select 0) lbData (_this select 1);
 _id = floor random 5000;
+_pos = [0,0,0];
 
 if(_objectClass iskindof "AllVehicles") then {
 _pos = [getPos player, 1, 10, 3, 0, 20, 0] call BIS_fnc_findSafePos;

@@ -8,6 +8,35 @@ More infos on the readme in the Arma_AC folder.
 
 Contact me on contact@utopiagaming.org for questions and bug report.
 
+## Installation
+
+###### create a description.ext file in your mission and add this code : 
+
+:heavy_exclamation_mark: Some conflits can happen with the mp_config.hpp if the **CfgRemoteExec** class already exists , to fix it just merge the content of the 2 classes in 1.
+
+```sqf
+#include "ARMA_AC\config.hpp"
+#include "ARMA_AC\Menu\Menus\menus.hpp"
+```
+
+###### create a init.sqf file in your mission and add this code :
+
+```sqf
+#define AC_FOLDER (getText (missionConfigFile >> "ARMA_AC" >> "folder"))
+
+if(isServer) then {
+	[] execVM (AC_FOLDER + "\initServer.sqf");
+	if(hasInterface) then {
+	waitUntil {
+	  !isNil "ac_fnc_log"
+	};
+	[] execVM (AC_FOLDER + "\initClient.sqf");
+  };
+}else{
+   [] execVM (AC_FOLDER + "\initClient.sqf");
+};
+```
+
 ## Changelog
 
 - ARMA_AC

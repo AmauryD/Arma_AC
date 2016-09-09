@@ -4,7 +4,9 @@ Arma 3 Anti cheat.
 Admin Menu included. 
 More infos on the readme in the Arma_AC folder.
 
-contact me on contact@utopiagaming.org for questions and bug report
+**[Aclogger](https://github.com/AmauryD/aclogger/) is recommanded with the anti cheat , just put it in your a3 folder (server and client)**
+
+Contact me on contact@utopiagaming.org for questions and bug report.
 
 ## Changelog
 
@@ -27,12 +29,3 @@ contact me on contact@utopiagaming.org for questions and bug report
   - A lot of bug fixes
   - Debug mode doesn't make the client crash
   - Debug mode is now showing in chat
-
-- Aclogger -> moved in stand alone project , you can get it [here](https://github.com/AmauryD/aclogger)
-  - Can only write .log files
-  - Can only write in arma 3 folder scope
-  - Created a Logger class
-  - Change the command separator to '$'
-  - More secure
-
-

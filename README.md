@@ -4,7 +4,40 @@ Arma 3 Anti cheat.
 Admin Menu included. 
 More infos on the readme in the Arma_AC folder.
 
-contact me on contact@utopiagaming.org for questions and bug report
+**[Aclogger](https://github.com/AmauryD/aclogger/) is recommanded with the anti cheat , just put it in your a3 folder (server and client)**
+
+Contact me on contact@utopiagaming.org for questions and bug report.
+
+## Installation
+
+###### create a description.ext file in your mission and add this code : 
+
+:heavy_exclamation_mark: Some conflits can happen with the mp_config.hpp if the **CfgRemoteExec** class already exists , to fix it just merge the content of the 2 classes in 1.
+
+:arrow_right: Don't forget to add your [UID](https://community.bistudio.com/wiki/getPlayerUID) to the config.hpp file in `admins[]`
+
+```sqf
+#include "ARMA_AC\config.hpp"
+#include "ARMA_AC\Menu\Menus\menus.hpp"
+```
+
+###### create a init.sqf file in your mission and add this code :
+
+```sqf
+#define AC_FOLDER (getText (missionConfigFile >> "ARMA_AC" >> "folder"))
+
+if(isServer) then {
+	[] execVM (AC_FOLDER + "\initServer.sqf");
+	if(hasInterface) then {
+	waitUntil {
+	  !isNil "ac_fnc_log"
+	};
+	[] execVM (AC_FOLDER + "\initClient.sqf");
+  };
+}else{
+   [] execVM (AC_FOLDER + "\initClient.sqf");
+};
+```
 
 ## Changelog
 
@@ -27,12 +60,3 @@ contact me on contact@utopiagaming.org for questions and bug report
   - A lot of bug fixes
   - Debug mode doesn't make the client crash
   - Debug mode is now showing in chat
-
-- Aclogger -> moved in stand alone project , you can get it [here](https://github.com/AmauryD/aclogger)
-  - Can only write .log files
-  - Can only write in arma 3 folder scope
-  - Created a Logger class
-  - Change the command separator to '$'
-  - More secure
-
-

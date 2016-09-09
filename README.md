@@ -14,6 +14,8 @@ Contact me on contact@utopiagaming.org for questions and bug report.
 
 :heavy_exclamation_mark: Some conflits can happen with the mp_config.hpp if the **CfgRemoteExec** class already exists , to fix it just merge the content of the 2 classes in 1.
 
+:arrow_right: Don't forget to add your [UID](https://community.bistudio.com/wiki/getPlayerUID) to the config.hpp file in `admins[]`
+
 ```sqf
 #include "ARMA_AC\config.hpp"
 #include "ARMA_AC\Menu\Menus\menus.hpp"

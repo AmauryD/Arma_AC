@@ -69,7 +69,7 @@ COMPILE("fn_fillVariablesList",          	   "ac_fnc_fillVariablesList");
 COMPILE("fn_fillPlayersList",           	   "ac_fnc_fillPlayersList");
 COMPILE("fn_fillDisplaysList",                 "ac_fnc_fillDisplaysList");
 
-_dir = AC_FOLDER + "\menu";
+_dir = AC_FOLDER + "\Menu";
 COMPILE("fn_changeMenu",                       "ac_fnc_changeMenu");
 COMPILE("fn_loadAdminMenu",           		   "ac_fnc_loadAdminMenu");
 COMPILE("fn_loadConsoleMenu",           	   "ac_fnc_loadConsoleMenu");
@@ -87,7 +87,7 @@ COMPILE("fn_editDialog",           			   "ac_fnc_editDialog");
 COMPILE("fn_changeObjectsList",          	   "ac_fnc_changeObjectsList");
 COMPILE("fn_refreshObjectsMenu",           	   "ac_fnc_refreshObjectsMenu");
 
-_dir = AC_FOLDER + "\menu\actions";
+_dir = AC_FOLDER + "\Menu\actions";
 COMPILE("fn_copyAllLogs",                	   "ac_fnc_copyAllLogs");
 COMPILE("fn_copySelectedLog",         		   "ac_fnc_copySelectedLog");
 COMPILE("fn_godMode",           			   "ac_fnc_godMode");
@@ -103,7 +103,6 @@ COMPILE("fn_teleportOnObject",                 "ac_fnc_teleportOnObject");
 COMPILE("fn_execLocal",           			   "ac_fnc_execLocal");
 COMPILE("fn_execGlobal",           			   "ac_fnc_execGlobal");
 COMPILE("fn_execServer",           			   "ac_fnc_execServer");
-COMPILE("fn_repair",           				   "ac_fnc_repair");
 COMPILE("fn_heal",           				   "ac_fnc_heal");
 COMPILE("fn_kick",           				   "ac_fnc_kick");
 COMPILE("fn_ban",           				   "ac_fnc_ban");

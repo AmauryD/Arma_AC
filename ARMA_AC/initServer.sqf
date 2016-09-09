@@ -10,8 +10,8 @@ scriptName "ac_init_server";
 
 [] call compile preprocessFileLineNumbers (AC_FOLDER + "\initServerFunctions.sqf");
 
-_version = call compile ("aclogger" callExtension "version");
-if(isNil "_version") then {
+_version = parseNumber ("aclogger" callExtension "version");
+if(_version isEqualTo 0) then {
 	diag_log "=======================================";
 	diag_log "aclogger is not present on the server , cheaters will not be logged in aclogger folder.";
 	diag_log "=======================================";

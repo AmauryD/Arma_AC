@@ -6,7 +6,7 @@ Please go to https://community.bistudio.com/wiki/CfgRemoteExec for further infor
 #define MP_FILTERING_FUNCTIONS 1
 
 #define JIP_TARGET_COMMANDS 0
-#define JIP_TARGET_FUNCTIONS 0
+#define JIP_TARGET_FUNCTIONS 1
 
 #define GLOBAL 0
 #define CLIENT 1

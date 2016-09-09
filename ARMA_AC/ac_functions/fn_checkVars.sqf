@@ -33,7 +33,7 @@ if(!(_x in _allowedVariables)) then {
           [RISK_HACK,"AC_badVars.log",_message] remoteExecCall ["ac_fnc_log",EXEC_SERVER];
           [_x,str (missionnamespace getVariable _x)] remoteExecCall ["ac_fnc_logScript",EXEC_SERVER];
           _private_cache pushBack _x;
-          DOCRASH;
+          [VARIABLES_ACTION] call ac_fnc_handleAction;
           }else{
           _private_cache pushBack _x; //don't do the number string analyse anymore
         };

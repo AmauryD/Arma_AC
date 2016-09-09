@@ -10,6 +10,7 @@ scriptName "ac_init_client";
 
 waitUntil{!isnil "BIS_fnc_init"};
 waitUntil{BIS_fnc_init};
+waitUntil{!isNull findDisplay 46};
 
 [] call compile preprocessFileLineNumbers (AC_FOLDER + "\initClientFunctions.sqf");
 
@@ -39,10 +40,11 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
 
 [] spawn {
 
- [[],[],[],[]] params ["_forbidden_variables","_allowed_variables","_cache"];
+ [[],[],[],[],true] params ["_forbidden_variables","_allowed_variables","_cache","_check_vars"];
 
  {_allowed_variables pushBack (tolower _x)}foreach getArray (AC_CFG_VARS_VARS >> "allowed");
  {_forbidden_variables pushBack (tolower _x)}foreach getArray (AC_CFG_VARS_VARS >> "forbidden");
+ _check_vars = VARIABLES_CHECK;
 
  while{true} do {
   if((unitRecoilCoefficient player) < 1) then {
@@ -50,7 +52,7 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
     DOCRASH;
   };
 
-  if(VARIABLES_CHECK) then {
+  if(_check_vars) then {
     _cache = [_cache,_forbidden_variables,_allowed_variables] call ac_fnc_checkVars; // cache stored in private var for security issues
   };
 
@@ -59,22 +61,22 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
 };
 
 [] spawn {
- [getArray (AC_CFG >> "allowedDisplays"),[],[]] params ["_allowed_displays","_allowed_vehicles","_allowed_weapons"];
+ [getArray (AC_CFG >> "allowedDisplays"),[],[],DISPLAY_CHECK,VEHICLES_CHECK,WEAPONSHOLDER_CHECK] params ["_allowed_displays","_allowed_vehicles","_allowed_weapons","_check_displays","_check_vehicles","_check_weapons"];
  
  {_allowed_weapons pushBack (tolower _x)}foreach getArray (AC_CFG >> "allowed_Weapons");
  {_allowed_vehicles pushBack (tolower _x)}foreach getArray (AC_CFG >> "allowedVehicles");
 
  while{true} do {
 
-  if(DISPLAY_CHECK) then {
+  if(_check_displays) then {
     [_allowed_displays] call ac_fnc_checkDisplays;
   };
 
-  if(VEHICLES_CHECK) then {
+  if(_check_vehicles) then {
     [_allowed_vehicles] call ac_fnc_checkVehicles;
   };
 
-  if(WEAPONSHOLDER_CHECK) then {
+  if(_check_weapons) then {
     [_allowed_weapons] call ac_fnc_checkWeapons;
   };
 

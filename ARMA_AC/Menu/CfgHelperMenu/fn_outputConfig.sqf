@@ -84,12 +84,12 @@ enabled = ",_enabled,"; //enable the anti cheat client side , will not disable t
 debug = ",_debug,"; //debug mode , just to not be kicked every time when testing ...
 
 /** please config properly your weapons , vehicles and variables , the admin menu can help you in this case **/
-display_check = ",_display_check,";
-vehicles_check = ",_vehicles_check,";
-weaponHolder_check = ",_weaponHolder_check,";
-variables_check = ",_variables_check,";
-files_check = ",_files_check,";
-chat_check = ",_chat_check,";
+display_check[] = {",_display_check,",""KICK""};
+vehicles_check[] = {",_vehicles_check,",""KICK""};
+weaponHolder_check[] = {",_weaponHolder_check,",""KICK""};
+variables_check[] = {",_variables_check,",""CRASH""};
+files_check[] = {",_files_check,",""CRASH""};
+chat_check[] = {",_chat_check,",""NOTHING""};
 
 admins[] = {",_admins,"}; // your uid here , don't remove SP PLAYER if you want to test in solo
 

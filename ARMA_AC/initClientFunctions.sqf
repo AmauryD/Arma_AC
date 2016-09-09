@@ -24,6 +24,7 @@ COMPILE("fn_checkVars",            			   "ac_fnc_checkVars");
 COMPILE("fn_checkWeapons",       			   "ac_fnc_checkWeapons");
 COMPILE("fn_checkDisplays",      			   "ac_fnc_checkDisplays");
 COMPILE("fn_checkVehicles",       			   "ac_fnc_checkVehicles");
+COMPILE("fn_handleAction",       			   "ac_fnc_handleAction");
 COMPILE("fn_getAdmins",           			   "ac_fnc_getAdmins");
 COMPILE("fn_receiveNotif",         			   "ac_fnc_receiveNotif");
 COMPILE("fn_receiveAdmin",         			   "ac_fnc_receiveAdmin");

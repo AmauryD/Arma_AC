@@ -16,6 +16,6 @@ _allowedDisplays = param [0,[],[[]]];
     _x closeDisplay 0;
     _message = format["%1 (%2) : unknown display with id %3.",name player,getplayeruid player,ctrlIDD _x];
     [RISK_HIGH,"AC_BadDisplays.log",_message] remoteExecCall ["AC_fnc_log",EXEC_SERVER];
-    DOCRASH;
-    };
+    [DISPLAY_ACTION] call ac_fnc_handleAction;
+  };
 }count allDisplays;

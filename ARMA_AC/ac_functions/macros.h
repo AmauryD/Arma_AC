@@ -15,12 +15,19 @@
 #define CHAT_REMOVE_IP (getNumber (AC_CFG_CHAT >> "remove_ip") == 1)
 #define CHAT_REMOVE_URL (getNumber (AC_CFG_CHAT >> "remove_url") == 1)
 
-#define DISPLAY_CHECK (getNumber (AC_CFG >> "display_check") == 1)
-#define VEHICLES_CHECK (getNumber (AC_CFG >> "vehicles_check") == 1)
-#define WEAPONSHOLDER_CHECK (getNumber (AC_CFG >> "weaponHolder_check") == 1)
-#define VARIABLES_CHECK (getNumber (AC_CFG >> "variables_check") == 1)
-#define FILES_CHECK (getNumber (AC_CFG >> "files_check") == 1)
-#define CHAT_CHECK (getNumber (AC_CFG >> "chat_check") == 1)
+#define DISPLAY_CHECK ((getArray (AC_CFG >> "display_check") select 0) == 1)
+#define VEHICLES_CHECK ((getArray (AC_CFG >> "vehicles_check") select 0) == 1)
+#define WEAPONSHOLDER_CHECK ((getArray (AC_CFG >> "weaponHolder_check") select 0) == 1)
+#define VARIABLES_CHECK ((getArray (AC_CFG >> "variables_check") select 0) == 1)
+#define FILES_CHECK ((getArray (AC_CFG >> "files_check") select 0) == 1)
+#define CHAT_CHECK ((getArray (AC_CFG >> "chat_check") select 0) == 1)
+
+#define DISPLAY_ACTION (getArray (AC_CFG >> "display_check") select 1)
+#define VEHICLES_ACTION (getArray (AC_CFG >> "vehicles_check") select 1)
+#define WEAPONSHOLDER_ACTION (getArray (AC_CFG >> "weaponHolder_check") select 1)
+#define VARIABLES_ACTION (getArray (AC_CFG >> "variables_check") select 1)
+#define FILES_ACTION (getArray (AC_CFG >> "files_check") select 1)
+#define CHAT_ACTION (getArray (AC_CFG >> "chat_check") select 1)
 
 #define RISK_LOW 0
 #define RISK_HIGH 1

@@ -13,13 +13,13 @@ private ["_display","_enable_ac_check_c","_enable_debug_check_c","_display_check
 ["Config File Loading ... Please wait"] call ac_fnc_logCfg;
 
 _enabled = getNumber (AC_CFG >> "enabled");
-_debug = getNumber (AC_CFG >> "debug");
-_display_check = getNumber (AC_CFG >> "display_check");
-_vehicles_check = getNumber (AC_CFG >> "vehicles_check");
-_weaponHolder_check = getNumber (AC_CFG >> "weaponHolder_check");
-_variables_check = getNumber (AC_CFG >> "variables_check");
-_files_check = getNumber (AC_CFG >> "files_check");
-_chat_check = getNumber (AC_CFG >> "chat_check");
+_debug =  getNumber (AC_CFG >> "debug");
+_display_check =  (getArray (AC_CFG >> "display_check")) select 0;
+_vehicles_check =  (getArray (AC_CFG >> "vehicles_check")) select 0;
+_weaponHolder_check =  (getArray (AC_CFG >> "weaponHolder_check")) select 0;
+_variables_check =  (getArray (AC_CFG >> "variables_check")) select 0;
+_files_check = (getArray (AC_CFG >> "files_check")) select 0;
+_chat_check =  (getArray (AC_CFG >> "chat_check")) select 0;
 
 _chat_check_ip = getNumber (AC_CFG_CHAT >> "remove_ip");
 _chat_check_url = getNumber (AC_CFG_CHAT >> "remove_url");

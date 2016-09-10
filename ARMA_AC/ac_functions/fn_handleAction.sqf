@@ -7,6 +7,8 @@
 *****************************************************************************************/
 _action = param[0,"NOTHING",[""]];
 
+if(DEBUG) exitWith {[format["Action requested (%1) , avoided because in debug mode.",_action]] call ac_fnc_debugMessage;};
+
 switch (_action) do { 
 	case "NOTHING" : {
 	   //so ... what can we do ?

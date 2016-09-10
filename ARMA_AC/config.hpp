@@ -12,7 +12,7 @@ class ARMA_AC {
 folder = "ARMA_AC";
 
 enabled = true; //enable the anti cheat client side , will not disable the mp filtering
-debug = false; //debug mode , just to not be kicked every time when testing ...
+debug = true; //debug mode , just to not be kicked every time when testing ...
 
 /** please config properly your weapons , vehicles and variables , the admin menu can help you in this case **/
 display_check[] = {true,"KICK"};

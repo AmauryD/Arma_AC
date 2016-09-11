@@ -47,9 +47,6 @@ if(isServer) then {
 - cheking running scripts in the background (experimental)
 - cfgHelperMenu updated
   
-  
-(The anti teleport feature was removed because it was not accurate , i'll be release in the next version)
-
 ## Config File Explanation
 
 In [config.hpp](https://github.com/AmauryD/Arma_AC/blob/master/ARMA_AC/config.hpp) you have a lot parameters , this section will help you to understand how it works and what it means.

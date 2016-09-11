@@ -22,7 +22,9 @@ variables_check[] = {true,"CRASH"};
 files_check[] = {true,"CRASH"};
 chat_check[] = {true,"NOTHING"};
 
-admins[] = {"76561197970859000","_SP_PLAYER_"}; // your uid here , don't remove SP PLAYER if you want to test in solo
+admins[] = {
+  "76561197970859000","_SP_PLAYER_"
+}; // your uid here , don't remove SP PLAYER if you want to test in solo
 
 class chatCfg {
     remove_ip = true; // will remove ip with format IPV4

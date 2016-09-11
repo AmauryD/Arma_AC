@@ -1,3 +1,12 @@
+#include "macros.h"
+/****************************************************************************************
+@created     : 9 september 2016
+@modified    : --
+@author      : [utopia] Amaury
+@description : none
+*****************************************************************************************/
+REQUIRE_CLIENT;
+
 waitUntil {!isNull findDisplay 46};
 _version = parseNumber ("aclogger" callExtension "version");
 

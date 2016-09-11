@@ -13,7 +13,6 @@ COMPILE_INIT;
 _dir = AC_FOLDER + "\basic_functions";
 COMPILE("fn_debugMessage",               	   "ac_fnc_debugMessage");
 COMPILE("fn_strTok",               		       "ac_fnc_strTok");
-COMPILE("fn_removeChar",          		       "ac_fnc_removeChar");
 COMPILE("fn_findPlayerByUid",     			   "ac_fnc_findPlayerByUid");
 COMPILE("fn_beginWith",           			   "ac_fnc_beginWith");
 COMPILE("fn_beginWiths",          			   "ac_fnc_beginWiths");

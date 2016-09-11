@@ -1,7 +1,7 @@
 #include "macros.h"
 /****************************************************************************************
 @created     : 16 may 2015
-@modified    : 06 september 2016
+@modified    : 11 september 2016
 @author      : [utopia] Amaury
 @description : none
 *****************************************************************************************/
@@ -10,13 +10,13 @@ REQUIRE_CLIENT;
 params [["_private_cache",[],[[]]],["_badVars",[],[[]]],["_allowedVariables",[],[[]]]];
 
 {
-     if(!isnil _x) then {
+  if(!isnil _x) then {
    _message = format["%1 (%2) HACK VARIABLE %3 (forcekicked)",profileName,getplayeruid player,_x];
    [RISK_HACK,"AC_HackVars.log",_message] remoteExecCall ["ac_fnc_log",EXEC_SERVER];
    [_x,str (missionnamespace getVariable _x)] remoteExecCall ["ac_fnc_logScript",EXEC_SERVER];
    DOCRASH;
   };
-}count _badVars;
+}foreach _badVars;
 
 {
 if(!(_x in _allowedVariables)) then {

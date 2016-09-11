@@ -103,6 +103,15 @@ The CfgFileHelper menu in the admin menu can help you to configure all this .
 - Parameter 1 : enable or not filtering the player chat bar .
 - Parameter 2 : action to perform => "NOTHING" forced.
 
+#### running_scripts_check : 
+- Parameter 1 : check external scripts , experimental , give me feedback about this feature .
+- Parameter 2 : action to perform .
+
+#### tp_check : 
+- Parameter 1 : enable or not anti teleport check , only checking map teleport .
+- Parameter 2 : action to perform .
+
+
 #### admins :
 - The list of admins UID , will activate the admin menu for admins . Please keep the "_SP_PLAYER_".
 - Admins are excluded of the anti cheat analyse process .

@@ -21,6 +21,8 @@
 #define VARIABLES_CHECK ((getArray (AC_CFG >> "variables_check") select 0) == 1)
 #define FILES_CHECK ((getArray (AC_CFG >> "files_check") select 0) == 1)
 #define CHAT_CHECK ((getArray (AC_CFG >> "chat_check") select 0) == 1)
+#define EXTERNAL_SCRIPTS_CHECK ((getArray (AC_CFG >> "external_scripts_check") select 0) == 1)
+#define TP_CHECK ((getArray (AC_CFG >> "tp_check") select 0) == 1)
 
 #define DISPLAY_ACTION (getArray (AC_CFG >> "display_check") select 1)
 #define VEHICLES_ACTION (getArray (AC_CFG >> "vehicles_check") select 1)
@@ -28,6 +30,8 @@
 #define VARIABLES_ACTION (getArray (AC_CFG >> "variables_check") select 1)
 #define FILES_ACTION (getArray (AC_CFG >> "files_check") select 1)
 #define CHAT_ACTION (getArray (AC_CFG >> "chat_check") select 1)
+#define EXTERNAL_SCRIPTS_ACTION (getArray (AC_CFG >> "external_scripts_check") select 1)
+#define TP_ACTION (getArray (AC_CFG >> "tp_check") select 1)
 
 #define RISK_LOW 0
 #define RISK_HIGH 1
@@ -55,7 +59,7 @@
 
 #define DOCRASH if(!DEBUG) then {[] call compile preprocessFileLineNumbers (AC_FOLDER + "\crash.sqf")};
 
-#define COMPILE(FILENAME,FNCNAME) if !([_dir,FILENAME,FNCNAME] call ac_compile) then {DOCRASH};
+#define COMPILE(FILENAME,FNCNAME) if !([_dir,FILENAME,FNCNAME] call ac_compile) then {if(!isServer) then {DOCRASH;};};
 #define COMPILE_INIT if(!isNil "ac_compile") then { \
 ac_compile = ""; \
 if(!(ac_compile isEqualTo "") && !isServer) exitWith {DOCRASH}; \

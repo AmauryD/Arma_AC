@@ -18,6 +18,8 @@ _weaponHolder_check = str (["weaponHolder_check"] call ac_fnc_getFromConfig);
 _variables_check = str (["variables_check"] call ac_fnc_getFromConfig);
 _files_check = str (["files_check"] call ac_fnc_getFromConfig);
 _chat_check = str (["chat_check"] call ac_fnc_getFromConfig);
+_tp_check = str (["tp_check"] call ac_fnc_getFromConfig);
+_scripts_check = str (["scripts_check"] call ac_fnc_getFromConfig);
 
 _chat_check_ip = str (["chat_check_ip"] call ac_fnc_getFromConfig);
 _chat_check_url = str (["chat_check_url"] call ac_fnc_getFromConfig);
@@ -90,6 +92,8 @@ weaponHolder_check[] = {",_weaponHolder_check,",""KICK""};
 variables_check[] = {",_variables_check,",""CRASH""};
 files_check[] = {",_files_check,",""CRASH""};
 chat_check[] = {",_chat_check,",""NOTHING""};
+external_scripts_check[] = {",_scripts_check,",""KICK""}; // experimental
+tp_check[] = {",_tp_check,",""KICK""}; // experimental
 
 admins[] = {",_admins,"}; // your uid here , don't remove SP PLAYER if you want to test in solo
 

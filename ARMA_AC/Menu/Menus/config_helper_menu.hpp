@@ -138,6 +138,46 @@ class ac_config_menu {
 			w = 0.00796875 * safezoneW;
 			h = 0.017 * safezoneH;
 		};
+		class scripts_check: RscCheckbox
+		{
+			idc = 2810;
+
+			x = 0.141406 * safezoneW + safezoneX;
+			y = 0.194 * safezoneH + safezoneY;
+			w = 0.00796875 * safezoneW;
+			h = 0.017 * safezoneH;
+		};
+		class scripts_check_text: RscText
+		{
+			idc = 1020;
+
+			text = "Check scripts"; //--- ToDo: Localize;
+			x = 0.157344 * safezoneW + safezoneX;
+			y = 0.194 * safezoneH + safezoneY;
+			w = 0.0717188 * safezoneW;
+			h = 0.017 * safezoneH;
+			sizeEx = 0.6 * GUI_GRID_H;
+		};
+		class tp_check: RscCheckbox
+		{
+			idc = 2811;
+
+			x = 0.237031 * safezoneW + safezoneX;
+			y = 0.194 * safezoneH + safezoneY;
+			w = 0.00796875 * safezoneW;
+			h = 0.017 * safezoneH;
+		};
+		class tp_check_text: RscText
+		{
+			idc = 1021;
+
+			text = "Check teleport"; //--- ToDo: Localize;
+			x = 0.252969 * safezoneW + safezoneX;
+			y = 0.194 * safezoneH + safezoneY;
+			w = 0.0717188 * safezoneW;
+			h = 0.017 * safezoneH;
+			sizeEx = 0.6 * GUI_GRID_H;
+		};
 		class chat_check: RscCheckbox
 		{
 			idc = 2807;

@@ -36,5 +36,7 @@ ac_config_output = [
   ],
   ["variables_allowed",[]],
   ["badWords",[]],
-  ["variables_forbidden",[]]
+  ["variables_forbidden",[]],
+  ["scripts_check",false],
+  ["tp_check",false]
 ];

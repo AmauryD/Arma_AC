@@ -12,7 +12,7 @@ REQUIRE_CLIENT;
 REQUIRE_ADMIN;
 
 private ["_display","_enable_ac_check","_enable_debug_check","_display_check","_holders_check","_variables_check","_files_check","_chat_check","_ip_check","_url_check",
-"_adminsList","_allowed_weapons_list","_allowed_vehicles_list","_bad_words_list","_allowed_displays","_allowed_variables_list","_vehicles_check"];
+"_adminsList","_allowed_weapons_list","_allowed_vehicles_list","_bad_words_list","_allowed_displays","_allowed_variables_list","_vehicles_check","_scripts_check","_tp_check"];
 
 _display = findDisplay 12341;
 
@@ -24,6 +24,8 @@ _holders_check = _display displayCtrl 2804;
 _variables_check = _display displayCtrl 2805;
 _files_check = _display displayCtrl 2806;
 _chat_check = _display displayCtrl 2807;
+_scripts_check = _display displayCtrl 2810;
+_tp_check = _display displayCtrl 2811;
 
 _ip_check = _display displayCtrl 2808;
 _url_check = _display displayCtrl 2809;
@@ -106,8 +108,8 @@ _files_check ctrlAddEventHandler["CheckedChanged",{["files_check",parseBool(_thi
 _chat_check ctrlAddEventHandler["CheckedChanged",{["chat_check",parseBool(_this select 1)] call ac_fnc_setToConfig}];
 _ip_check ctrlAddEventHandler["CheckedChanged",{["chat_check_ip",parseBool(_this select 1)] call ac_fnc_setToConfig}];
 _url_check ctrlAddEventHandler["CheckedChanged",{["chat_check_url",parseBool(_this select 1)] call ac_fnc_setToConfig}];
-
-
+_scripts_check ctrlAddEventHandler["CheckedChanged",{["scripts_check",parseBool(_this select 1)] call ac_fnc_setToConfig}];
+_tp_check ctrlAddEventHandler["CheckedChanged",{["tp_check",parseBool(_this select 1)] call ac_fnc_setToConfig}];
 
 _adminsList ctrlAddEventHandler["LBDblClick",{
 ["admins",(_this select 0) lbData (_this select 1)] call ac_fnc_removeFromConfig;

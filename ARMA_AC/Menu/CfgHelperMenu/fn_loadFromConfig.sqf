@@ -8,7 +8,7 @@
 *****************************************************************************************/
 private ["_display","_enable_ac_check_c","_enable_debug_check_c","_display_check_c","_holders_check_c","_variables_check_c","_files_check_c","_chat_check","_ip_check_c","_url_check_c",
 "_adminsList","_allowed_weapons_list","_allowed_vehicles_list","_bad_words_list","_allowed_displays","_allowed_variables_list","_enabled","_debug","_display_check","_vehicles_check","_weaponHolder_check",
-"_variables_check","_files_check","_chat_check","_chat_check_ip","_chat_check_url"];
+"_variables_check","_files_check","_chat_check","_chat_check_ip","_chat_check_url","_scripts_check","_tp_check"];
 
 ["Config File Loading ... Please wait"] call ac_fnc_logCfg;
 
@@ -20,6 +20,7 @@ _weaponHolder_check =  (getArray (AC_CFG >> "weaponHolder_check")) select 0;
 _variables_check =  (getArray (AC_CFG >> "variables_check")) select 0;
 _files_check = (getArray (AC_CFG >> "files_check")) select 0;
 _chat_check =  (getArray (AC_CFG >> "chat_check")) select 0;
+_tp_check = (getArray (AC_CFG >> "tp_check")) select 0;
 
 _chat_check_ip = getNumber (AC_CFG_CHAT >> "remove_ip");
 _chat_check_url = getNumber (AC_CFG_CHAT >> "remove_url");
@@ -38,6 +39,8 @@ _tags_forbidden = getArray (AC_CFG_VARS >> "tags" >> "forbidden");
 _variables_forbidden = getArray (AC_CFG_VARS >> "variables" >> "forbidden");
 _variables_allowed = getArray (AC_CFG_VARS >> "variables" >> "allowed");
 
+_scripts_check = (getArray (AC_CFG >> "external_scripts_check")) select 0;
+
 _display = findDisplay 12341;
 
 _enable_ac_check_c = _display displayCtrl 2800;
@@ -48,6 +51,8 @@ _holders_check_c = _display displayCtrl 2804;
 _variables_check_c = _display displayCtrl 2805;
 _files_check_c = _display displayCtrl 2806;
 _chat_check_c = _display displayCtrl 2807;
+_scripts_check_c = _display displayCtrl 2810;
+_tp_check_c = _display displayCtrl 2811;
 
 _ip_check_c = _display displayCtrl 2808;
 _url_check_c = _display displayCtrl 2809;
@@ -94,6 +99,8 @@ _files_check_c cbSetChecked intToBool(_files_check);
 _chat_check_c cbSetChecked intToBool(_chat_check);
 _ip_check_c cbSetChecked intToBool(_chat_check_ip);
 _url_check_c cbSetChecked intToBool(_chat_check_url);
+_scripts_check_c cbSetChecked intToBool(_scripts_check);
+_tp_check_c cbSetChecked intToBool(_tp_check);
 
 ["enabled",intToBool(_enabled)] call ac_fnc_setToConfig;
 ["debug",intToBool(_debug)] call ac_fnc_setToConfig;
@@ -105,6 +112,7 @@ _url_check_c cbSetChecked intToBool(_chat_check_url);
 ["chat_check",intToBool(_chat_check)] call ac_fnc_setToConfig;
 ["chat_check_ip",intToBool(_chat_check_ip)] call ac_fnc_setToConfig;
 ["chat_check_url",intToBool(_chat_check_url)] call ac_fnc_setToConfig;
+["scripts_check",intToBool(_chat_check_url)] call ac_fnc_setToConfig;
 
 {
 	["admins",_x] call ac_fnc_setToConfig;

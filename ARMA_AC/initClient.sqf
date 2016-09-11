@@ -12,7 +12,7 @@ waitUntil{!isNull findDisplay 46};
 
 [] call compile preprocessFileLineNumbers (AC_FOLDER + "\initClientFunctions.sqf");
 
-if !AC_ENABLED exitWith {};
+if !AC_ENABLED exitWith {};            
 
 [] spawn {
   if !CHAT_CHECK exitWith {};
@@ -22,6 +22,20 @@ if !AC_ENABLED exitWith {};
   findDisplay 24 displayAddEventHandler ["KeyDown",ac_fnc_handleTextChat];
   waitUntil {isNull findDisplay 24};
   };
+};
+
+if TP_CHECK then {
+  addMissionEventHandler ["MapSingleClick",{
+  _this spawn {
+    _clickPos2D = _this select 1;
+    _oldPos2D = [getPosATL player select 0,getPosATL player select 1,0];
+    uiSleep 0.2;
+    if(_clickPos2D isEqualTo _oldPos2D) then {
+      [RISK_HIGH,"AC_LOG.log",format["%1 (%2) player changed position after map click (tp)",profileName,getPlayerUID player]] remoteExecCall ["ac_fnc_log",EXEC_SERVER];
+      [TP_ACTION] call ac_fnc_handleAction;
+    };
+  };
+  }];
 };
 
 if(getplayeruid player in (getArray (AC_CFG >> "admins"))) exitWith {
@@ -35,6 +49,7 @@ if(getText(configFile >> "CfgFunctions" >> "init") != "A3\functions_f\initFuncti
 
 if(WEAPONSHOLDER_CHECK) then { player addEventHandler["Take",ac_fnc_interactWithContainer] };
 if(FILES_CHECK)         then { call AC_fnc_checkFiles };
+
 
 [] spawn {
 
@@ -58,7 +73,7 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
 };
 
 [] spawn {
- [getArray (AC_CFG >> "allowedDisplays"),getArray (AC_CFG >> "allowedVehicles"),getArray (AC_CFG >> "allowed_Weapons"),DISPLAY_CHECK,VEHICLES_CHECK,WEAPONSHOLDER_CHECK] params ["_allowed_displays","_allowed_vehicles","_allowed_weapons","_check_displays","_check_vehicles","_check_weapons"];
+ [getArray (AC_CFG >> "allowedDisplays"),getArray (AC_CFG >> "allowedVehicles"),getArray (AC_CFG >> "allowed_Weapons"),DISPLAY_CHECK,VEHICLES_CHECK,WEAPONSHOLDER_CHECK,EXTERNAL_SCRIPTS_CHECK] params ["_allowed_displays","_allowed_vehicles","_allowed_weapons","_check_displays","_check_vehicles","_check_weapons","_check_scripts"];
  
  _allowed_weapons = _allowed_weapons apply {tolower _x};
  _allowed_vehicles = _allowed_vehicles apply {tolower _x};
@@ -75,6 +90,10 @@ if(FILES_CHECK)         then { call AC_fnc_checkFiles };
 
   if(_check_weapons) then {
     [_allowed_weapons] call ac_fnc_checkWeapons;
+  };
+
+  if(_check_scripts) then {
+    [] call ac_fnc_checkActiveSqfScripts;
   };
 
   uisleep 1;

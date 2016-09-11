@@ -22,6 +22,8 @@ COMPILE("fn_checkFiles",          			   "ac_fnc_checkFiles");
 COMPILE("fn_checkVars",            			   "ac_fnc_checkVars");
 COMPILE("fn_checkWeapons",       			   "ac_fnc_checkWeapons");
 COMPILE("fn_checkDisplays",      			   "ac_fnc_checkDisplays");
+COMPILE("fn_getActiveSqfScripts",      	   	   "ac_fnc_getActiveSqfScripts");
+COMPILE("fn_checkActiveSqfScripts",      	   "ac_fnc_checkActiveSqfScripts");
 COMPILE("fn_checkVehicles",       			   "ac_fnc_checkVehicles");
 COMPILE("fn_handleAction",       			   "ac_fnc_handleAction");
 COMPILE("fn_getAdmins",           			   "ac_fnc_getAdmins");

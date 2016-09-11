@@ -7,7 +7,7 @@
 *****************************************************************************************/
 private ["_display","_enable_ac_check","_enable_debug_check","_display_check","_holders_check","_variables_check","_files_check","_chat_check","_ip_check","_url_check",
 "_adminsList","_allowed_weapons_list","_allowed_vehicles_list","_bad_words_list","_allowed_displays","_allowed_variables_list","_enabled","_debug","_display_check","_vehicles_check","_weaponHolder_check",
-"_variables_check","_files_check","_chat_check","_chat_check_ip","_chat_check_url"];
+"_variables_check","_files_check","_chat_check","_chat_check_ip","_chat_check_url","_scripts_check","_tp_check"];
 
 _display = findDisplay 12341;
 
@@ -19,6 +19,8 @@ _holders_check_c = _display displayCtrl 2804;
 _variables_check_c = _display displayCtrl 2805;
 _files_check_c = _display displayCtrl 2806;
 _chat_check_c = _display displayCtrl 2807;
+_scripts_check_c = _display displayCtrl 2810;
+_tp_check_c = _display displayCtrl 2811;
 
 _ip_check_c = _display displayCtrl 2808;
 _url_check_c = _display displayCtrl 2809;
@@ -61,6 +63,8 @@ _tags_allowed = ["variables_tags_allowed"] call ac_fnc_getFromConfig;
 _tags_forbidden = ["variables_tags_forbidden"] call ac_fnc_getFromConfig;
 _variables_forbidden = ["variables_forbidden"] call ac_fnc_getFromConfig;
 _variables_allowed = ["variables_allowed"] call ac_fnc_getFromConfig;
+_scripts_check = ["scripts_check"] call ac_fnc_getFromConfig;
+_tp_check = ["tp_check"] call ac_fnc_getFromConfig;
 
 lbClear _allowed_weapons_list;
 lbClear _allowed_displays_list;
@@ -85,6 +89,8 @@ _files_check_c cbSetChecked _files_check;
 _chat_check_c cbSetChecked _chat_check;
 _ip_check_c cbSetChecked _chat_check_ip;
 _url_check_c cbSetChecked _chat_check_url;
+_scripts_check_c cbSetChecked _scripts_check;
+_tp_check_c cbSetChecked _tp_check;
 
 {
    _index = _adminsList lbAdd _x;

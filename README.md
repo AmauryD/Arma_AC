@@ -41,27 +41,12 @@ if(isServer) then {
 };
 ```
 
-## Changelog
+## Last Changelog
 
-- ARMA_AC
-  - Organizing folders
-  - Removed old menus and defines
-  - New menus
-    - Admin menu 
-    - Teleport menu (in admin menu)
-    - Console menu
-    - Spawning menu
-    - Spectate menu (in admin menu)
-    - Logs menu
-  - Config File Maker 
-    * Helps you making your config file and adapt to your server
-  - Replaced old useless MP filtering methods with the new one
-  - New chat filtering method
-  - Admin welcome message
-  - Performance optimization
-  - A lot of bug fixes
-  - Debug mode doesn't make the client crash
-  - Debug mode is now showing in chat
+- new teleport checking method
+- cheking running scripts in the background (experimental)
+- cfgHelperMenu updated
+  
   
 (The anti teleport feature was removed because it was not accurate , i'll be release in the next version)
 

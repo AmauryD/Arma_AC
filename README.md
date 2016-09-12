@@ -8,7 +8,7 @@ __Please configure properly your config.hpp in singleplayer before putting this 
 
 **[Aclogger](https://github.com/AmauryD/aclogger/) is recommanded with the anti cheat , just put it in your a3 folder (server and client)**
 
-** Contact me on contact@utopiagaming.org for questions and bug report . Don't forget to give me feedback about the efficiency of the AC :) **
+__Contact me on contact@utopiagaming.org for questions and bug report . Don't forget to give me feedback about the efficiency of the AC__
 
 ## Installation
 

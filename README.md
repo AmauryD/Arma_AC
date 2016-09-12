@@ -101,14 +101,12 @@ The CfgFileHelper menu in the admin menu can help you to configure all this .
 - Admins are excluded of the anti cheat analyse process .
 
 #### (class) chatCfg :
-- The list of admins UID , will activate the admin menu for admins . Please keep the "_SP_PLAYER_".
-- Admins are excluded of the anti cheat analyse process .
-	* __remove_ip__ 
-		- remove the entered ip formats in chat bar.
+    * __remove_ip__ 
+	- remove the entered ip formats in chat bar.
     * __remove_url__ 
         - remove the urls sent in the chat bar.
     * __badWords__ 
-		- remove the listed bad words sent in the chat bar.
+	- remove the listed bad words sent in the chat bar.
 
 #### badFiles : 
 - The list of files checked on the mission start , will trigger if in this list .

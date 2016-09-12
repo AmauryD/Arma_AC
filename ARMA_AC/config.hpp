@@ -21,7 +21,11 @@ weaponHolder_check[] = {false,"KICK"};
 variables_check[] = {true,"CRASH"};
 files_check[] = {true,"CRASH"};
 chat_check[] = {true,"NOTHING"};
+<<<<<<< HEAD
 external_scripts_check[] = {false,"NOTHING"}; // experimental
+=======
+external_scripts_check[] = {false,"NOTHING"}; 
+>>>>>>> origin/master
 tp_check[] = {true,"NOTHING"};
 
 admins[] = {

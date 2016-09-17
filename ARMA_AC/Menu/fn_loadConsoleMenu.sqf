@@ -43,8 +43,8 @@ _history_list ctrlAddEventHandler ["LBDblClick",{
 	[] call ac_fnc_refreshConsoleMenu;
 }];
 
-_history = profileNamespace getVariable "ac_console_history";
-if (isNil  "_history" || _history isEqualTo 0) then {
+_history = profileNamespace getVariable ["ac_console_history",0];
+if (_history isEqualTo 0) then {
     profileNamespace setVariable ["ac_console_history",[]];
 };
 

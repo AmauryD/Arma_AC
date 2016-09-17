@@ -17,7 +17,7 @@ _version = parseNumber ("aclogger" callExtension "version");
 	"You're always crashing ? turn on the debug mode in your config file or check in the aclogger folder",
 	"/!\ Please configure your config file in the admin menu , then replace the older config.hpp by the one copied in your clipboard or aclogger file.",
 	(if (_version isEqualTo 0) then {
-    "Aclogger is off , please install it in your arma 3 folder , don't forget to download Package redistribuable Microsoft Visual C++ 2010"
+    "Aclogger is off , please install it in your arma 3 folder , don't forget to download Package redistribuable Microsoft Visual C++ 2013"
 	}else{
       if(_version >= 1.1) then {
         format["Aclogger is detected and has the correct version %1",_version]

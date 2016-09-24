@@ -19,7 +19,7 @@ _textColor = [_secLevel,"HTML"] call ac_fnc_getRiskColor;
 
 _text = format["<t color='%2'>%1</t>",_text,_textColor];
 
-if(!(profileNamespace getVariable ["showMessages",false])) then {
+if(!(profileNamespace getVariable ["showMessages",true])) then {
 [_text] spawn bis_fnc_dynamicText;
 }else{
 hint parseText format["AntiCheat : <br/> %1",_text];

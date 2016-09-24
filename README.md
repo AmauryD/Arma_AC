@@ -1,6 +1,6 @@
 # Arma_AC
 
-Arma 3 Anti cheat. (developpement currently paused for few weeks)
+Arma 3 Anti cheat. (developpement currently paused for few weeks) .
 Admin Menu included. 
 More infos on the readme in the Arma_AC folder.
 

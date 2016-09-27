@@ -13,7 +13,7 @@ _version = parseNumber ("aclogger" callExtension "version");
 "Welcome new admin !" hintC [
     "Thank you to have choosen ARMA_AC to administrate and protect your server !",
     "It's a new AC , report all bugs or failures on contact@utopiagaming.org mail",
-	"Press >< to open the admin menu.",
+	"Press shift + O to open the admin menu.",
 	"You're always crashing ? turn on the debug mode in your config file or check in the aclogger folder",
 	"/!\ Please configure your config file in the admin menu , then replace the older config.hpp by the one copied in your clipboard or aclogger file.",
 	(if (_version isEqualTo 0) then {

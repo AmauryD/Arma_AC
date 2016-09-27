@@ -24,12 +24,12 @@ if(isNil {profileNamespace getVariable "ac_welcome_admin"}) then {
 
 waitUntil {!isNull findDisplay 46};
 
-systemChat "shift + >< key to open the menu.";
-
+systemChat "shift + O key to open the menu.";
+ 
 (findDisplay 46) displayAddEventHandler["KeyDown",{
     _code = _this select 1;
 	_shift = _this select 2;
-	if(_code isEqualTo 86 && _shift && (getplayeruid player in (getArray (AC_CFG >> "admins")))) then {
+	if(_code isEqualTo 24 && _shift && (getplayeruid player in (getArray (AC_CFG >> "admins")))) then {
 		if not dialog then {
 		["ac_logs_menu"] spawn ac_fnc_changeMenu;
 	    };

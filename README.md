@@ -1,6 +1,6 @@
 # Arma_AC
 
-Arma 3 Anti cheat. (Next version update will be released in 3-4 weeks) .
+Arma 3 Anti cheat. (Developpement stopped for now) .
 
 Admin Menu included. 
 More infos on the readme in the Arma_AC folder.

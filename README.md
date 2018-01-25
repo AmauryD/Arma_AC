@@ -1,6 +1,6 @@
 # Arma_AC
 
-:exclamation: This project is no longer maintained and not finished , I do not recommend to use it anymore.
+:exclamation: **This project is no longer maintained and not finished , I do not recommend to use it anymore.**
 
 Arma 3 Anti cheat. (Developpement stopped for now , i'll probably rework this project this year) .
 
